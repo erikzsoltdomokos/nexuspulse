@@ -1,0 +1,3308 @@
+{
+  "match_id": "EUW1_7123456789",
+  "duration_min": 32,
+  "power_windows": {
+    "blue": [
+      {
+        "start": 3,
+        "end": 22
+      }
+    ],
+    "red": [
+      {
+        "start": 24,
+        "end": 32
+      }
+    ]
+  },
+  "timeline": [
+    {
+      "minute": 0,
+      "team_blue_power_index": 55.8,
+      "team_red_power_index": 46.1,
+      "win_probability_blue": 0.5,
+      "delta_win_probability": 0,
+      "is_inflection_point": false,
+      "shap_summary": [],
+      "state": {
+        "gold_blue": 2500,
+        "gold_red": 2500,
+        "gold_diff": 0,
+        "xp_diff": 0,
+        "kills_blue": 0,
+        "kills_red": 0,
+        "dragons_blue": 0,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 0,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 0,
+        "plates_red": 0,
+        "items_completed_blue": 0,
+        "items_completed_red": 0
+      }
+    },
+    {
+      "minute": 1,
+      "team_blue_power_index": 59.9,
+      "team_red_power_index": 44.8,
+      "win_probability_blue": 0.514,
+      "delta_win_probability": 0.014,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 196,
+          "contribution": 0.014
+        }
+      ],
+      "state": {
+        "gold_blue": 4448,
+        "gold_red": 4252,
+        "gold_diff": 196,
+        "xp_diff": 129,
+        "kills_blue": 0,
+        "kills_red": 0,
+        "dragons_blue": 0,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 0,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 0,
+        "plates_red": 0,
+        "items_completed_blue": 0,
+        "items_completed_red": 0
+      }
+    },
+    {
+      "minute": 2,
+      "team_blue_power_index": 56.6,
+      "team_red_power_index": 48.5,
+      "win_probability_blue": 0.52,
+      "delta_win_probability": 0.006,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 1,
+          "contribution": 0.007
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 172,
+          "contribution": -0.002
+        }
+      ],
+      "state": {
+        "gold_blue": 6286,
+        "gold_red": 6114,
+        "gold_diff": 172,
+        "xp_diff": 21,
+        "kills_blue": 1,
+        "kills_red": 0,
+        "dragons_blue": 0,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 0,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 0,
+        "plates_red": 0,
+        "items_completed_blue": 1,
+        "items_completed_red": 1
+      }
+    },
+    {
+      "minute": 3,
+      "team_blue_power_index": 61.1,
+      "team_red_power_index": 44.3,
+      "win_probability_blue": 0.532,
+      "delta_win_probability": 0.012,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 345,
+          "contribution": 0.012
+        }
+      ],
+      "state": {
+        "gold_blue": 8223,
+        "gold_red": 7878,
+        "gold_diff": 345,
+        "xp_diff": 162,
+        "kills_blue": 1,
+        "kills_red": 0,
+        "dragons_blue": 0,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 0,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 0,
+        "plates_red": 0,
+        "items_completed_blue": 1,
+        "items_completed_red": 1
+      }
+    },
+    {
+      "minute": 4,
+      "team_blue_power_index": 59.7,
+      "team_red_power_index": 44.7,
+      "win_probability_blue": 0.551,
+      "delta_win_probability": 0.019,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 522,
+          "contribution": 0.012
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 2,
+          "contribution": 0.007
+        }
+      ],
+      "state": {
+        "gold_blue": 10161,
+        "gold_red": 9639,
+        "gold_diff": 522,
+        "xp_diff": 322,
+        "kills_blue": 2,
+        "kills_red": 0,
+        "dragons_blue": 0,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 0,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 0,
+        "plates_red": 0,
+        "items_completed_blue": 2,
+        "items_completed_red": 2
+      }
+    },
+    {
+      "minute": 5,
+      "team_blue_power_index": 64.1,
+      "team_red_power_index": 43.3,
+      "win_probability_blue": 0.613,
+      "delta_win_probability": 0.062,
+      "is_inflection_point": true,
+      "shap_summary": [
+        {
+          "feature": "dragons_diff",
+          "label": "Dragon difference",
+          "value": 1,
+          "contribution": 0.061
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 648,
+          "contribution": 0.009
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 1,
+          "contribution": -0.007
+        }
+      ],
+      "state": {
+        "gold_blue": 12074,
+        "gold_red": 11426,
+        "gold_diff": 648,
+        "xp_diff": 363,
+        "kills_blue": 2,
+        "kills_red": 1,
+        "dragons_blue": 1,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 0,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 0,
+        "plates_red": 0,
+        "items_completed_blue": 3,
+        "items_completed_red": 2
+      }
+    },
+    {
+      "minute": 6,
+      "team_blue_power_index": 65.9,
+      "team_red_power_index": 41.2,
+      "win_probability_blue": 0.633,
+      "delta_win_probability": 0.02,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 845,
+          "contribution": 0.013
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 2,
+          "contribution": 0.007
+        }
+      ],
+      "state": {
+        "gold_blue": 14023,
+        "gold_red": 13178,
+        "gold_diff": 845,
+        "xp_diff": 467,
+        "kills_blue": 3,
+        "kills_red": 1,
+        "dragons_blue": 1,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 0,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 1,
+        "plates_red": 0,
+        "items_completed_blue": 3,
+        "items_completed_red": 3
+      }
+    },
+    {
+      "minute": 7,
+      "team_blue_power_index": 65.9,
+      "team_red_power_index": 39.7,
+      "win_probability_blue": 0.701,
+      "delta_win_probability": 0.068,
+      "is_inflection_point": true,
+      "shap_summary": [
+        {
+          "feature": "voidgrubs_diff",
+          "label": "Void Grub difference",
+          "value": 3,
+          "contribution": 0.054
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 1187,
+          "contribution": 0.022
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 1,
+          "contribution": -0.007
+        }
+      ],
+      "state": {
+        "gold_blue": 16044,
+        "gold_red": 14857,
+        "gold_diff": 1187,
+        "xp_diff": 704,
+        "kills_blue": 3,
+        "kills_red": 2,
+        "dragons_blue": 1,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 1,
+        "plates_red": 0,
+        "items_completed_blue": 4,
+        "items_completed_red": 4
+      }
+    },
+    {
+      "minute": 8,
+      "team_blue_power_index": 68.8,
+      "team_red_power_index": 33.6,
+      "win_probability_blue": 0.716,
+      "delta_win_probability": 0.015,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 1334,
+          "contribution": 0.009
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 2,
+          "contribution": 0.006
+        }
+      ],
+      "state": {
+        "gold_blue": 17967,
+        "gold_red": 16633,
+        "gold_diff": 1334,
+        "xp_diff": 845,
+        "kills_blue": 4,
+        "kills_red": 2,
+        "dragons_blue": 1,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 2,
+        "plates_red": 0,
+        "items_completed_blue": 5,
+        "items_completed_red": 4
+      }
+    },
+    {
+      "minute": 9,
+      "team_blue_power_index": 70.8,
+      "team_red_power_index": 31.9,
+      "win_probability_blue": 0.741,
+      "delta_win_probability": 0.025,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 1692,
+          "contribution": 0.02
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 3,
+          "contribution": 0.006
+        }
+      ],
+      "state": {
+        "gold_blue": 19996,
+        "gold_red": 18304,
+        "gold_diff": 1692,
+        "xp_diff": 1047,
+        "kills_blue": 5,
+        "kills_red": 2,
+        "dragons_blue": 1,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 0,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 3,
+        "plates_red": 1,
+        "items_completed_blue": 5,
+        "items_completed_red": 5
+      }
+    },
+    {
+      "minute": 10,
+      "team_blue_power_index": 70.7,
+      "team_red_power_index": 27.3,
+      "win_probability_blue": 0.713,
+      "delta_win_probability": -0.028,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "voidgrubs_diff",
+          "label": "Void Grub difference",
+          "value": 0,
+          "contribution": -0.049
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 2027,
+          "contribution": 0.018
+        }
+      ],
+      "state": {
+        "gold_blue": 22014,
+        "gold_red": 19987,
+        "gold_diff": 2027,
+        "xp_diff": 1161,
+        "kills_blue": 6,
+        "kills_red": 3,
+        "dragons_blue": 1,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 4,
+        "plates_red": 1,
+        "items_completed_blue": 6,
+        "items_completed_red": 5
+      }
+    },
+    {
+      "minute": 11,
+      "team_blue_power_index": 77.9,
+      "team_red_power_index": 28,
+      "win_probability_blue": 0.775,
+      "delta_win_probability": 0.062,
+      "is_inflection_point": true,
+      "shap_summary": [
+        {
+          "feature": "dragons_diff",
+          "label": "Dragon difference",
+          "value": 2,
+          "contribution": 0.048
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 2302,
+          "contribution": 0.016
+        }
+      ],
+      "state": {
+        "gold_blue": 24001,
+        "gold_red": 21699,
+        "gold_diff": 2302,
+        "xp_diff": 1272,
+        "kills_blue": 6,
+        "kills_red": 3,
+        "dragons_blue": 2,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 0,
+        "towers_red": 0,
+        "plates_blue": 4,
+        "plates_red": 2,
+        "items_completed_blue": 7,
+        "items_completed_red": 6
+      }
+    },
+    {
+      "minute": 12,
+      "team_blue_power_index": 76.6,
+      "team_red_power_index": 24.3,
+      "win_probability_blue": 0.81,
+      "delta_win_probability": 0.035,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 1,
+          "contribution": 0.017
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 2600,
+          "contribution": 0.014
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 4,
+          "contribution": 0.005
+        }
+      ],
+      "state": {
+        "gold_blue": 26000,
+        "gold_red": 23400,
+        "gold_diff": 2600,
+        "xp_diff": 1469,
+        "kills_blue": 7,
+        "kills_red": 3,
+        "dragons_blue": 2,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 1,
+        "towers_red": 0,
+        "plates_blue": 5,
+        "plates_red": 2,
+        "items_completed_blue": 7,
+        "items_completed_red": 6
+      }
+    },
+    {
+      "minute": 13,
+      "team_blue_power_index": 79,
+      "team_red_power_index": 23.6,
+      "win_probability_blue": 0.831,
+      "delta_win_probability": 0.021,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 3009,
+          "contribution": 0.017
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 5,
+          "contribution": 0.005
+        }
+      ],
+      "state": {
+        "gold_blue": 28055,
+        "gold_red": 25046,
+        "gold_diff": 3009,
+        "xp_diff": 1917,
+        "kills_blue": 8,
+        "kills_red": 3,
+        "dragons_blue": 2,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 1,
+        "towers_red": 0,
+        "plates_blue": 7,
+        "plates_red": 2,
+        "items_completed_blue": 8,
+        "items_completed_red": 7
+      }
+    },
+    {
+      "minute": 14,
+      "team_blue_power_index": 79.3,
+      "team_red_power_index": 19.4,
+      "win_probability_blue": 0.843,
+      "delta_win_probability": 0.012,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 2,
+          "contribution": 0.014
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 4,
+          "contribution": -0.004
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 3068,
+          "contribution": 0.002
+        }
+      ],
+      "state": {
+        "gold_blue": 29934,
+        "gold_red": 26866,
+        "gold_diff": 3068,
+        "xp_diff": 1767,
+        "kills_blue": 8,
+        "kills_red": 4,
+        "dragons_blue": 2,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 0,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 2,
+        "towers_red": 0,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 9,
+        "items_completed_red": 8
+      }
+    },
+    {
+      "minute": 15,
+      "team_blue_power_index": 85.6,
+      "team_red_power_index": 19.3,
+      "win_probability_blue": 0.856,
+      "delta_win_probability": 0.013,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 3318,
+          "contribution": 0.009
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 5,
+          "contribution": 0.004
+        }
+      ],
+      "state": {
+        "gold_blue": 31909,
+        "gold_red": 28591,
+        "gold_diff": 3318,
+        "xp_diff": 1986,
+        "kills_blue": 9,
+        "kills_red": 4,
+        "dragons_blue": 2,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 2,
+        "towers_red": 0,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 9,
+        "items_completed_red": 8
+      }
+    },
+    {
+      "minute": 16,
+      "team_blue_power_index": 89,
+      "team_red_power_index": 16.1,
+      "win_probability_blue": 0.859,
+      "delta_win_probability": 0.003,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 1,
+          "contribution": -0.013
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 3674,
+          "contribution": 0.012
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 6,
+          "contribution": 0.004
+        }
+      ],
+      "state": {
+        "gold_blue": 33937,
+        "gold_red": 30263,
+        "gold_diff": 3674,
+        "xp_diff": 2185,
+        "kills_blue": 10,
+        "kills_red": 4,
+        "dragons_blue": 2,
+        "dragons_red": 0,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 2,
+        "towers_red": 1,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 10,
+        "items_completed_red": 9
+      }
+    },
+    {
+      "minute": 17,
+      "team_blue_power_index": 83.3,
+      "team_red_power_index": 15.3,
+      "win_probability_blue": 0.824,
+      "delta_win_probability": -0.035,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "dragons_diff",
+          "label": "Dragon difference",
+          "value": 1,
+          "contribution": -0.033
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 3613,
+          "contribution": -0.002
+        }
+      ],
+      "state": {
+        "gold_blue": 35757,
+        "gold_red": 32144,
+        "gold_diff": 3613,
+        "xp_diff": 2077,
+        "kills_blue": 11,
+        "kills_red": 5,
+        "dragons_blue": 2,
+        "dragons_red": 1,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 2,
+        "towers_red": 1,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 11,
+        "items_completed_red": 9
+      }
+    },
+    {
+      "minute": 18,
+      "team_blue_power_index": 74.4,
+      "team_red_power_index": 14.9,
+      "win_probability_blue": 0.846,
+      "delta_win_probability": 0.022,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 2,
+          "contribution": 0.014
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 3734,
+          "contribution": 0.005
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 7,
+          "contribution": 0.004
+        }
+      ],
+      "state": {
+        "gold_blue": 37667,
+        "gold_red": 33933,
+        "gold_diff": 3734,
+        "xp_diff": 2202,
+        "kills_blue": 12,
+        "kills_red": 5,
+        "dragons_blue": 2,
+        "dragons_red": 1,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 3,
+        "towers_red": 1,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 11,
+        "items_completed_red": 10
+      }
+    },
+    {
+      "minute": 19,
+      "team_blue_power_index": 73.2,
+      "team_red_power_index": 23.8,
+      "win_probability_blue": 0.817,
+      "delta_win_probability": -0.029,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 3105,
+          "contribution": -0.024
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 6,
+          "contribution": -0.004
+        }
+      ],
+      "state": {
+        "gold_blue": 39203,
+        "gold_red": 36098,
+        "gold_diff": 3105,
+        "xp_diff": 1788,
+        "kills_blue": 13,
+        "kills_red": 7,
+        "dragons_blue": 2,
+        "dragons_red": 1,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 3,
+        "towers_red": 1,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 12,
+        "items_completed_red": 11
+      }
+    },
+    {
+      "minute": 20,
+      "team_blue_power_index": 64.4,
+      "team_red_power_index": 28.7,
+      "win_probability_blue": 0.743,
+      "delta_win_probability": -0.074,
+      "is_inflection_point": true,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 2110,
+          "contribution": -0.045
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 1,
+          "contribution": -0.015
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 4,
+          "contribution": -0.009
+        }
+      ],
+      "state": {
+        "gold_blue": 40555,
+        "gold_red": 38445,
+        "gold_diff": 2110,
+        "xp_diff": 1256,
+        "kills_blue": 13,
+        "kills_red": 9,
+        "dragons_blue": 2,
+        "dragons_red": 1,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 3,
+        "towers_red": 2,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 12,
+        "items_completed_red": 11
+      }
+    },
+    {
+      "minute": 21,
+      "team_blue_power_index": 61.6,
+      "team_red_power_index": 42.8,
+      "win_probability_blue": 0.747,
+      "delta_win_probability": 0.004,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 2,
+          "contribution": 0.019
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 1824,
+          "contribution": -0.016
+        }
+      ],
+      "state": {
+        "gold_blue": 42262,
+        "gold_red": 40438,
+        "gold_diff": 1824,
+        "xp_diff": 1099,
+        "kills_blue": 14,
+        "kills_red": 10,
+        "dragons_blue": 2,
+        "dragons_red": 1,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 2,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 13,
+        "items_completed_red": 12
+      }
+    },
+    {
+      "minute": 22,
+      "team_blue_power_index": 59.5,
+      "team_red_power_index": 45.6,
+      "win_probability_blue": 0.722,
+      "delta_win_probability": -0.025,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 1478,
+          "contribution": -0.019
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 3,
+          "contribution": -0.006
+        }
+      ],
+      "state": {
+        "gold_blue": 43939,
+        "gold_red": 42461,
+        "gold_diff": 1478,
+        "xp_diff": 994,
+        "kills_blue": 14,
+        "kills_red": 11,
+        "dragons_blue": 2,
+        "dragons_red": 1,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 2,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 13,
+        "items_completed_red": 13
+      }
+    },
+    {
+      "minute": 23,
+      "team_blue_power_index": 52.3,
+      "team_red_power_index": 48.5,
+      "win_probability_blue": 0.64,
+      "delta_win_probability": -0.082,
+      "is_inflection_point": true,
+      "shap_summary": [
+        {
+          "feature": "dragons_diff",
+          "label": "Dragon difference",
+          "value": 0,
+          "contribution": -0.053
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 1012,
+          "contribution": -0.027
+        }
+      ],
+      "state": {
+        "gold_blue": 45556,
+        "gold_red": 44544,
+        "gold_diff": 1012,
+        "xp_diff": 721,
+        "kills_blue": 15,
+        "kills_red": 12,
+        "dragons_blue": 2,
+        "dragons_red": 2,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 2,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 14,
+        "items_completed_red": 14
+      }
+    },
+    {
+      "minute": 24,
+      "team_blue_power_index": 44.6,
+      "team_red_power_index": 54.6,
+      "win_probability_blue": 0.536,
+      "delta_win_probability": -0.104,
+      "is_inflection_point": true,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 44,
+          "contribution": -0.065
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 1,
+          "contribution": -0.023
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 1,
+          "contribution": -0.014
+        }
+      ],
+      "state": {
+        "gold_blue": 46922,
+        "gold_red": 46878,
+        "gold_diff": 44,
+        "xp_diff": 6,
+        "kills_blue": 15,
+        "kills_red": 14,
+        "dragons_blue": 2,
+        "dragons_red": 2,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 3,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 14,
+        "items_completed_red": 14
+      }
+    },
+    {
+      "minute": 25,
+      "team_blue_power_index": 36.3,
+      "team_red_power_index": 69.3,
+      "win_probability_blue": 0.454,
+      "delta_win_probability": -0.082,
+      "is_inflection_point": true,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -1121,
+          "contribution": -0.081
+        }
+      ],
+      "state": {
+        "gold_blue": 48190,
+        "gold_red": 49311,
+        "gold_diff": -1121,
+        "xp_diff": -569,
+        "kills_blue": 16,
+        "kills_red": 15,
+        "dragons_blue": 2,
+        "dragons_red": 2,
+        "barons_blue": 0,
+        "barons_red": 0,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 3,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 15,
+        "items_completed_red": 15
+      }
+    },
+    {
+      "minute": 26,
+      "team_blue_power_index": 29.4,
+      "team_red_power_index": 73.6,
+      "win_probability_blue": 0.188,
+      "delta_win_probability": -0.266,
+      "is_inflection_point": true,
+      "shap_summary": [
+        {
+          "feature": "barons_diff",
+          "label": "Baron difference",
+          "value": -1,
+          "contribution": -0.201
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -2269,
+          "contribution": -0.078
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": -1,
+          "contribution": -0.015
+        }
+      ],
+      "state": {
+        "gold_blue": 49466,
+        "gold_red": 51735,
+        "gold_diff": -2269,
+        "xp_diff": -1302,
+        "kills_blue": 16,
+        "kills_red": 17,
+        "dragons_blue": 2,
+        "dragons_red": 2,
+        "barons_blue": 0,
+        "barons_red": 1,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 3,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 15,
+        "items_completed_red": 16
+      }
+    },
+    {
+      "minute": 27,
+      "team_blue_power_index": 19.4,
+      "team_red_power_index": 79.2,
+      "win_probability_blue": 0.145,
+      "delta_win_probability": -0.043,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -2899,
+          "contribution": -0.025
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 0,
+          "contribution": -0.015
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": -2,
+          "contribution": -0.005
+        }
+      ],
+      "state": {
+        "gold_blue": 51001,
+        "gold_red": 53900,
+        "gold_diff": -2899,
+        "xp_diff": -1740,
+        "kills_blue": 17,
+        "kills_red": 19,
+        "dragons_blue": 2,
+        "dragons_red": 2,
+        "barons_blue": 0,
+        "barons_red": 1,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 4,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 16,
+        "items_completed_red": 17
+      }
+    },
+    {
+      "minute": 28,
+      "team_blue_power_index": 17.7,
+      "team_red_power_index": 83.3,
+      "win_probability_blue": 0.116,
+      "delta_win_probability": -0.029,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -3369,
+          "contribution": -0.016
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": -1,
+          "contribution": -0.012
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": -3,
+          "contribution": -0.004
+        }
+      ],
+      "state": {
+        "gold_blue": 52616,
+        "gold_red": 55985,
+        "gold_diff": -3369,
+        "xp_diff": -2065,
+        "kills_blue": 17,
+        "kills_red": 20,
+        "dragons_blue": 2,
+        "dragons_red": 2,
+        "barons_blue": 0,
+        "barons_red": 1,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 5,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 16,
+        "items_completed_red": 17
+      }
+    },
+    {
+      "minute": 29,
+      "team_blue_power_index": 11.8,
+      "team_red_power_index": 93.9,
+      "win_probability_blue": 0.069,
+      "delta_win_probability": -0.047,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -4394,
+          "contribution": -0.026
+        },
+        {
+          "feature": "dragons_diff",
+          "label": "Dragon difference",
+          "value": -1,
+          "contribution": -0.023
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": -4,
+          "contribution": -0.003
+        }
+      ],
+      "state": {
+        "gold_blue": 53953,
+        "gold_red": 58347,
+        "gold_diff": -4394,
+        "xp_diff": -2693,
+        "kills_blue": 18,
+        "kills_red": 22,
+        "dragons_blue": 2,
+        "dragons_red": 3,
+        "barons_blue": 0,
+        "barons_red": 1,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 5,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 17,
+        "items_completed_red": 18
+      }
+    },
+    {
+      "minute": 30,
+      "team_blue_power_index": 5,
+      "team_red_power_index": 95,
+      "win_probability_blue": 0.044,
+      "delta_win_probability": -0.025,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -5499,
+          "contribution": -0.017
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": -2,
+          "contribution": -0.006
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": -6,
+          "contribution": -0.004
+        }
+      ],
+      "state": {
+        "gold_blue": 55251,
+        "gold_red": 60750,
+        "gold_diff": -5499,
+        "xp_diff": -3407,
+        "kills_blue": 18,
+        "kills_red": 24,
+        "dragons_blue": 2,
+        "dragons_red": 3,
+        "barons_blue": 0,
+        "barons_red": 1,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 6,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 17,
+        "items_completed_red": 19
+      }
+    },
+    {
+      "minute": 31,
+      "team_blue_power_index": 5,
+      "team_red_power_index": 95,
+      "win_probability_blue": 0.025,
+      "delta_win_probability": -0.019,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -6839,
+          "contribution": -0.013
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": -4,
+          "contribution": -0.008
+        }
+      ],
+      "state": {
+        "gold_blue": 56431,
+        "gold_red": 63270,
+        "gold_diff": -6839,
+        "xp_diff": -4026,
+        "kills_blue": 19,
+        "kills_red": 26,
+        "dragons_blue": 2,
+        "dragons_red": 3,
+        "barons_blue": 0,
+        "barons_red": 1,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 8,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 17,
+        "items_completed_red": 20
+      }
+    },
+    {
+      "minute": 32,
+      "team_blue_power_index": 5,
+      "team_red_power_index": 95,
+      "win_probability_blue": 0.015,
+      "delta_win_probability": -0.01,
+      "is_inflection_point": false,
+      "shap_summary": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -7981,
+          "contribution": -0.007
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": -5,
+          "contribution": -0.002
+        }
+      ],
+      "state": {
+        "gold_blue": 57710,
+        "gold_red": 65691,
+        "gold_diff": -7981,
+        "xp_diff": -4873,
+        "kills_blue": 19,
+        "kills_red": 28,
+        "dragons_blue": 2,
+        "dragons_red": 3,
+        "barons_blue": 0,
+        "barons_red": 1,
+        "heralds_blue": 1,
+        "heralds_red": 0,
+        "voidgrubs_blue": 3,
+        "voidgrubs_red": 3,
+        "towers_blue": 4,
+        "towers_red": 9,
+        "plates_blue": 7,
+        "plates_red": 3,
+        "items_completed_blue": 18,
+        "items_completed_red": 21
+      }
+    }
+  ],
+  "inflection_points": [
+    {
+      "minute": 5,
+      "delta": 0.062,
+      "direction": "blue",
+      "top_features": [
+        {
+          "feature": "dragons_diff",
+          "label": "Dragon difference",
+          "value": 1,
+          "contribution": 0.061
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 648,
+          "contribution": 0.009
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 1,
+          "contribution": -0.007
+        }
+      ],
+      "description": "Blue took the dragon; blue win probability moved +6.2 pts to 61%."
+    },
+    {
+      "minute": 7,
+      "delta": 0.068,
+      "direction": "blue",
+      "top_features": [
+        {
+          "feature": "voidgrubs_diff",
+          "label": "Void Grub difference",
+          "value": 3,
+          "contribution": 0.054
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 1187,
+          "contribution": 0.022
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 1,
+          "contribution": -0.007
+        }
+      ],
+      "description": "Blue claimed the Void Grubs; blue win probability moved +6.8 pts to 70%."
+    },
+    {
+      "minute": 11,
+      "delta": 0.062,
+      "direction": "blue",
+      "top_features": [
+        {
+          "feature": "dragons_diff",
+          "label": "Dragon difference",
+          "value": 2,
+          "contribution": 0.048
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 2302,
+          "contribution": 0.016
+        }
+      ],
+      "description": "Blue took the dragon; blue win probability moved +6.2 pts to 78%."
+    },
+    {
+      "minute": 20,
+      "delta": -0.074,
+      "direction": "red",
+      "top_features": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 2110,
+          "contribution": -0.045
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 1,
+          "contribution": -0.015
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 4,
+          "contribution": -0.009
+        }
+      ],
+      "description": "Red converted a gold swing; blue win probability moved -7.4 pts to 74%."
+    },
+    {
+      "minute": 23,
+      "delta": -0.082,
+      "direction": "red",
+      "top_features": [
+        {
+          "feature": "dragons_diff",
+          "label": "Dragon difference",
+          "value": 0,
+          "contribution": -0.053
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 1012,
+          "contribution": -0.027
+        }
+      ],
+      "description": "Red took the dragon; blue win probability moved -8.2 pts to 64%."
+    },
+    {
+      "minute": 24,
+      "delta": -0.104,
+      "direction": "red",
+      "top_features": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": 44,
+          "contribution": -0.065
+        },
+        {
+          "feature": "towers_diff",
+          "label": "Tower difference",
+          "value": 1,
+          "contribution": -0.023
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": 1,
+          "contribution": -0.014
+        }
+      ],
+      "description": "Red converted a gold swing; blue win probability moved -10.4 pts to 54%."
+    },
+    {
+      "minute": 25,
+      "delta": -0.082,
+      "direction": "red",
+      "top_features": [
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -1121,
+          "contribution": -0.081
+        }
+      ],
+      "description": "Red converted a gold swing; blue win probability moved -8.2 pts to 45%."
+    },
+    {
+      "minute": 26,
+      "delta": -0.266,
+      "direction": "red",
+      "top_features": [
+        {
+          "feature": "barons_diff",
+          "label": "Baron difference",
+          "value": -1,
+          "contribution": -0.201
+        },
+        {
+          "feature": "gold_diff",
+          "label": "Gold difference",
+          "value": -2269,
+          "contribution": -0.078
+        },
+        {
+          "feature": "kills_diff",
+          "label": "Kill difference",
+          "value": -1,
+          "contribution": -0.015
+        }
+      ],
+      "description": "Red secured Baron Nashor; blue win probability moved -26.6 pts to 19%."
+    }
+  ],
+  "player_anomalies": [
+    {
+      "puuid": "mock-puuid-09-8ff3473e",
+      "participant_id": 9,
+      "champion": "Kaisa",
+      "team": "red",
+      "minute": 9,
+      "anomaly_type": "FARM_COLLAPSE",
+      "severity": "LOW",
+      "description": "CS/min fell to 4.1 (expected 7.2) under early lane pressure.",
+      "score": 0.41
+    },
+    {
+      "puuid": "mock-puuid-07-538453db",
+      "participant_id": 7,
+      "champion": "Viego",
+      "team": "red",
+      "minute": 13,
+      "anomaly_type": "GENERAL_DEVIATION",
+      "severity": "LOW",
+      "description": "Jungle pathing diverged from role baseline; low camp uptime.",
+      "score": 0.38
+    },
+    {
+      "puuid": "mock-puuid-04-78dde6c6",
+      "participant_id": 4,
+      "champion": "Jinx",
+      "team": "blue",
+      "minute": 20,
+      "anomaly_type": "ISOLATED_DEATHS",
+      "severity": "HIGH",
+      "description": "Died twice alone in the river between 19–21 min without vision cover.",
+      "score": 0.91
+    },
+    {
+      "puuid": "mock-puuid-02-3c6ef363",
+      "participant_id": 2,
+      "champion": "LeeSin",
+      "team": "blue",
+      "minute": 22,
+      "anomaly_type": "ISOLATED_DEATHS",
+      "severity": "MEDIUM",
+      "description": "Caught face-checking red jungle with no allies within 2,000 units.",
+      "score": 0.67
+    },
+    {
+      "puuid": "mock-puuid-03-daa66d14",
+      "participant_id": 3,
+      "champion": "Ahri",
+      "team": "blue",
+      "minute": 24,
+      "anomaly_type": "FARM_COLLAPSE",
+      "severity": "MEDIUM",
+      "description": "Missed 18 waves-worth of CS while grouping mid; gold/min −35%.",
+      "score": 0.62
+    },
+    {
+      "puuid": "mock-puuid-05-17156078",
+      "participant_id": 5,
+      "champion": "Thresh",
+      "team": "blue",
+      "minute": 25,
+      "anomaly_type": "VISION_DROP",
+      "severity": "HIGH",
+      "description": "Placed 0 wards in the 4 minutes before Baron; control wards expired.",
+      "score": 0.88
+    },
+    {
+      "puuid": "mock-puuid-01-9e3779b1",
+      "participant_id": 1,
+      "champion": "Aatrox",
+      "team": "blue",
+      "minute": 27,
+      "anomaly_type": "XP_STALL",
+      "severity": "MEDIUM",
+      "description": "XP gain stalled for 3 min while split-pushing into a lost side lane.",
+      "score": 0.59
+    }
+  ],
+  "player_stability": [
+    {
+      "participant_id": 1,
+      "puuid": "mock-puuid-01-9e3779b1",
+      "champion": "Aatrox",
+      "team": "blue",
+      "role": "TOP",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 84.6
+        },
+        {
+          "minute": 1,
+          "stability": 77.9
+        },
+        {
+          "minute": 2,
+          "stability": 77.2
+        },
+        {
+          "minute": 3,
+          "stability": 75
+        },
+        {
+          "minute": 4,
+          "stability": 77
+        },
+        {
+          "minute": 5,
+          "stability": 84.2
+        },
+        {
+          "minute": 6,
+          "stability": 79.3
+        },
+        {
+          "minute": 7,
+          "stability": 82.2
+        },
+        {
+          "minute": 8,
+          "stability": 84.7
+        },
+        {
+          "minute": 9,
+          "stability": 81.3
+        },
+        {
+          "minute": 10,
+          "stability": 76.7
+        },
+        {
+          "minute": 11,
+          "stability": 80.8
+        },
+        {
+          "minute": 12,
+          "stability": 83.2
+        },
+        {
+          "minute": 13,
+          "stability": 82.9
+        },
+        {
+          "minute": 14,
+          "stability": 84.6
+        },
+        {
+          "minute": 15,
+          "stability": 74.4
+        },
+        {
+          "minute": 16,
+          "stability": 83.2
+        },
+        {
+          "minute": 17,
+          "stability": 77.4
+        },
+        {
+          "minute": 18,
+          "stability": 84.3
+        },
+        {
+          "minute": 19,
+          "stability": 80.3
+        },
+        {
+          "minute": 20,
+          "stability": 78.3
+        },
+        {
+          "minute": 21,
+          "stability": 80.6
+        },
+        {
+          "minute": 22,
+          "stability": 85.4
+        },
+        {
+          "minute": 23,
+          "stability": 77.8
+        },
+        {
+          "minute": 24,
+          "stability": 72.8
+        },
+        {
+          "minute": 25,
+          "stability": 67.7
+        },
+        {
+          "minute": 26,
+          "stability": 49.6
+        },
+        {
+          "minute": 27,
+          "stability": 38
+        },
+        {
+          "minute": 28,
+          "stability": 47
+        },
+        {
+          "minute": 29,
+          "stability": 56.7
+        },
+        {
+          "minute": 30,
+          "stability": 73.4
+        },
+        {
+          "minute": 31,
+          "stability": 63.6
+        },
+        {
+          "minute": 32,
+          "stability": 69.7
+        }
+      ]
+    },
+    {
+      "participant_id": 2,
+      "puuid": "mock-puuid-02-3c6ef363",
+      "champion": "LeeSin",
+      "team": "blue",
+      "role": "JUNGLE",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 84.2
+        },
+        {
+          "minute": 1,
+          "stability": 82.9
+        },
+        {
+          "minute": 2,
+          "stability": 78.5
+        },
+        {
+          "minute": 3,
+          "stability": 79.2
+        },
+        {
+          "minute": 4,
+          "stability": 76.8
+        },
+        {
+          "minute": 5,
+          "stability": 80
+        },
+        {
+          "minute": 6,
+          "stability": 83.8
+        },
+        {
+          "minute": 7,
+          "stability": 84.8
+        },
+        {
+          "minute": 8,
+          "stability": 82.7
+        },
+        {
+          "minute": 9,
+          "stability": 84.7
+        },
+        {
+          "minute": 10,
+          "stability": 85.4
+        },
+        {
+          "minute": 11,
+          "stability": 76.9
+        },
+        {
+          "minute": 12,
+          "stability": 82.5
+        },
+        {
+          "minute": 13,
+          "stability": 85.7
+        },
+        {
+          "minute": 14,
+          "stability": 83.1
+        },
+        {
+          "minute": 15,
+          "stability": 83.5
+        },
+        {
+          "minute": 16,
+          "stability": 79.4
+        },
+        {
+          "minute": 17,
+          "stability": 82.3
+        },
+        {
+          "minute": 18,
+          "stability": 77.2
+        },
+        {
+          "minute": 19,
+          "stability": 76
+        },
+        {
+          "minute": 20,
+          "stability": 74.4
+        },
+        {
+          "minute": 21,
+          "stability": 54.1
+        },
+        {
+          "minute": 22,
+          "stability": 45
+        },
+        {
+          "minute": 23,
+          "stability": 63.7
+        },
+        {
+          "minute": 24,
+          "stability": 68
+        },
+        {
+          "minute": 25,
+          "stability": 74
+        },
+        {
+          "minute": 26,
+          "stability": 70.7
+        },
+        {
+          "minute": 27,
+          "stability": 72.4
+        },
+        {
+          "minute": 28,
+          "stability": 67.5
+        },
+        {
+          "minute": 29,
+          "stability": 67.3
+        },
+        {
+          "minute": 30,
+          "stability": 66.6
+        },
+        {
+          "minute": 31,
+          "stability": 65.9
+        },
+        {
+          "minute": 32,
+          "stability": 67.1
+        }
+      ]
+    },
+    {
+      "participant_id": 3,
+      "puuid": "mock-puuid-03-daa66d14",
+      "champion": "Ahri",
+      "team": "blue",
+      "role": "MIDDLE",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 80.1
+        },
+        {
+          "minute": 1,
+          "stability": 81.3
+        },
+        {
+          "minute": 2,
+          "stability": 82.3
+        },
+        {
+          "minute": 3,
+          "stability": 85.7
+        },
+        {
+          "minute": 4,
+          "stability": 75.3
+        },
+        {
+          "minute": 5,
+          "stability": 78.3
+        },
+        {
+          "minute": 6,
+          "stability": 77.1
+        },
+        {
+          "minute": 7,
+          "stability": 77.4
+        },
+        {
+          "minute": 8,
+          "stability": 84.8
+        },
+        {
+          "minute": 9,
+          "stability": 75.2
+        },
+        {
+          "minute": 10,
+          "stability": 79
+        },
+        {
+          "minute": 11,
+          "stability": 83.9
+        },
+        {
+          "minute": 12,
+          "stability": 82.7
+        },
+        {
+          "minute": 13,
+          "stability": 78.2
+        },
+        {
+          "minute": 14,
+          "stability": 85.2
+        },
+        {
+          "minute": 15,
+          "stability": 78.3
+        },
+        {
+          "minute": 16,
+          "stability": 77.9
+        },
+        {
+          "minute": 17,
+          "stability": 81.6
+        },
+        {
+          "minute": 18,
+          "stability": 79.2
+        },
+        {
+          "minute": 19,
+          "stability": 76.4
+        },
+        {
+          "minute": 20,
+          "stability": 79.6
+        },
+        {
+          "minute": 21,
+          "stability": 82.9
+        },
+        {
+          "minute": 22,
+          "stability": 64.5
+        },
+        {
+          "minute": 23,
+          "stability": 62.8
+        },
+        {
+          "minute": 24,
+          "stability": 52.7
+        },
+        {
+          "minute": 25,
+          "stability": 54.1
+        },
+        {
+          "minute": 26,
+          "stability": 58.5
+        },
+        {
+          "minute": 27,
+          "stability": 77.4
+        },
+        {
+          "minute": 28,
+          "stability": 72.3
+        },
+        {
+          "minute": 29,
+          "stability": 68.2
+        },
+        {
+          "minute": 30,
+          "stability": 67
+        },
+        {
+          "minute": 31,
+          "stability": 61.4
+        },
+        {
+          "minute": 32,
+          "stability": 71.1
+        }
+      ]
+    },
+    {
+      "participant_id": 4,
+      "puuid": "mock-puuid-04-78dde6c6",
+      "champion": "Jinx",
+      "team": "blue",
+      "role": "BOTTOM",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 79.5
+        },
+        {
+          "minute": 1,
+          "stability": 84.7
+        },
+        {
+          "minute": 2,
+          "stability": 84.4
+        },
+        {
+          "minute": 3,
+          "stability": 75.3
+        },
+        {
+          "minute": 4,
+          "stability": 78.6
+        },
+        {
+          "minute": 5,
+          "stability": 78.3
+        },
+        {
+          "minute": 6,
+          "stability": 82.4
+        },
+        {
+          "minute": 7,
+          "stability": 77
+        },
+        {
+          "minute": 8,
+          "stability": 74.6
+        },
+        {
+          "minute": 9,
+          "stability": 75.1
+        },
+        {
+          "minute": 10,
+          "stability": 85
+        },
+        {
+          "minute": 11,
+          "stability": 79.3
+        },
+        {
+          "minute": 12,
+          "stability": 84
+        },
+        {
+          "minute": 13,
+          "stability": 83.8
+        },
+        {
+          "minute": 14,
+          "stability": 80.1
+        },
+        {
+          "minute": 15,
+          "stability": 74.5
+        },
+        {
+          "minute": 16,
+          "stability": 76
+        },
+        {
+          "minute": 17,
+          "stability": 80
+        },
+        {
+          "minute": 18,
+          "stability": 65.4
+        },
+        {
+          "minute": 19,
+          "stability": 52.6
+        },
+        {
+          "minute": 20,
+          "stability": 35.2
+        },
+        {
+          "minute": 21,
+          "stability": 55.8
+        },
+        {
+          "minute": 22,
+          "stability": 62
+        },
+        {
+          "minute": 23,
+          "stability": 73.8
+        },
+        {
+          "minute": 24,
+          "stability": 80.4
+        },
+        {
+          "minute": 25,
+          "stability": 73.8
+        },
+        {
+          "minute": 26,
+          "stability": 75.7
+        },
+        {
+          "minute": 27,
+          "stability": 77.7
+        },
+        {
+          "minute": 28,
+          "stability": 71.8
+        },
+        {
+          "minute": 29,
+          "stability": 72.6
+        },
+        {
+          "minute": 30,
+          "stability": 64.5
+        },
+        {
+          "minute": 31,
+          "stability": 69.7
+        },
+        {
+          "minute": 32,
+          "stability": 70.2
+        }
+      ]
+    },
+    {
+      "participant_id": 5,
+      "puuid": "mock-puuid-05-17156078",
+      "champion": "Thresh",
+      "team": "blue",
+      "role": "UTILITY",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 78.4
+        },
+        {
+          "minute": 1,
+          "stability": 80.9
+        },
+        {
+          "minute": 2,
+          "stability": 85.4
+        },
+        {
+          "minute": 3,
+          "stability": 80.2
+        },
+        {
+          "minute": 4,
+          "stability": 77.4
+        },
+        {
+          "minute": 5,
+          "stability": 80.2
+        },
+        {
+          "minute": 6,
+          "stability": 83.3
+        },
+        {
+          "minute": 7,
+          "stability": 81.5
+        },
+        {
+          "minute": 8,
+          "stability": 74.2
+        },
+        {
+          "minute": 9,
+          "stability": 76.1
+        },
+        {
+          "minute": 10,
+          "stability": 80.3
+        },
+        {
+          "minute": 11,
+          "stability": 77.1
+        },
+        {
+          "minute": 12,
+          "stability": 77.3
+        },
+        {
+          "minute": 13,
+          "stability": 74.5
+        },
+        {
+          "minute": 14,
+          "stability": 79.4
+        },
+        {
+          "minute": 15,
+          "stability": 82.3
+        },
+        {
+          "minute": 16,
+          "stability": 76
+        },
+        {
+          "minute": 17,
+          "stability": 82.8
+        },
+        {
+          "minute": 18,
+          "stability": 82.9
+        },
+        {
+          "minute": 19,
+          "stability": 74.1
+        },
+        {
+          "minute": 20,
+          "stability": 85.2
+        },
+        {
+          "minute": 21,
+          "stability": 81.5
+        },
+        {
+          "minute": 22,
+          "stability": 83.2
+        },
+        {
+          "minute": 23,
+          "stability": 62
+        },
+        {
+          "minute": 24,
+          "stability": 51.8
+        },
+        {
+          "minute": 25,
+          "stability": 25
+        },
+        {
+          "minute": 26,
+          "stability": 43.6
+        },
+        {
+          "minute": 27,
+          "stability": 54.1
+        },
+        {
+          "minute": 28,
+          "stability": 72.8
+        },
+        {
+          "minute": 29,
+          "stability": 73.1
+        },
+        {
+          "minute": 30,
+          "stability": 72.6
+        },
+        {
+          "minute": 31,
+          "stability": 73.3
+        },
+        {
+          "minute": 32,
+          "stability": 70.7
+        }
+      ]
+    },
+    {
+      "participant_id": 6,
+      "puuid": "mock-puuid-06-b54cda29",
+      "champion": "Ornn",
+      "team": "red",
+      "role": "TOP",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 82.1
+        },
+        {
+          "minute": 1,
+          "stability": 81.6
+        },
+        {
+          "minute": 2,
+          "stability": 84.6
+        },
+        {
+          "minute": 3,
+          "stability": 83.9
+        },
+        {
+          "minute": 4,
+          "stability": 79.1
+        },
+        {
+          "minute": 5,
+          "stability": 75.7
+        },
+        {
+          "minute": 6,
+          "stability": 78.7
+        },
+        {
+          "minute": 7,
+          "stability": 84.8
+        },
+        {
+          "minute": 8,
+          "stability": 76.6
+        },
+        {
+          "minute": 9,
+          "stability": 79.3
+        },
+        {
+          "minute": 10,
+          "stability": 82.3
+        },
+        {
+          "minute": 11,
+          "stability": 77.8
+        },
+        {
+          "minute": 12,
+          "stability": 83.2
+        },
+        {
+          "minute": 13,
+          "stability": 79.8
+        },
+        {
+          "minute": 14,
+          "stability": 77.4
+        },
+        {
+          "minute": 15,
+          "stability": 82.3
+        },
+        {
+          "minute": 16,
+          "stability": 80.7
+        },
+        {
+          "minute": 17,
+          "stability": 75
+        },
+        {
+          "minute": 18,
+          "stability": 78.3
+        },
+        {
+          "minute": 19,
+          "stability": 83.4
+        },
+        {
+          "minute": 20,
+          "stability": 86
+        },
+        {
+          "minute": 21,
+          "stability": 87.6
+        },
+        {
+          "minute": 22,
+          "stability": 88.3
+        },
+        {
+          "minute": 23,
+          "stability": 79.2
+        },
+        {
+          "minute": 24,
+          "stability": 79.8
+        },
+        {
+          "minute": 25,
+          "stability": 83.4
+        },
+        {
+          "minute": 26,
+          "stability": 85.5
+        },
+        {
+          "minute": 27,
+          "stability": 83.3
+        },
+        {
+          "minute": 28,
+          "stability": 79.9
+        },
+        {
+          "minute": 29,
+          "stability": 85.9
+        },
+        {
+          "minute": 30,
+          "stability": 82.2
+        },
+        {
+          "minute": 31,
+          "stability": 86.4
+        },
+        {
+          "minute": 32,
+          "stability": 85.3
+        }
+      ]
+    },
+    {
+      "participant_id": 7,
+      "puuid": "mock-puuid-07-538453db",
+      "champion": "Viego",
+      "team": "red",
+      "role": "JUNGLE",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 83.2
+        },
+        {
+          "minute": 1,
+          "stability": 75.2
+        },
+        {
+          "minute": 2,
+          "stability": 79.6
+        },
+        {
+          "minute": 3,
+          "stability": 77.2
+        },
+        {
+          "minute": 4,
+          "stability": 84.1
+        },
+        {
+          "minute": 5,
+          "stability": 82.4
+        },
+        {
+          "minute": 6,
+          "stability": 78.7
+        },
+        {
+          "minute": 7,
+          "stability": 74.2
+        },
+        {
+          "minute": 8,
+          "stability": 82.8
+        },
+        {
+          "minute": 9,
+          "stability": 76.6
+        },
+        {
+          "minute": 10,
+          "stability": 76.3
+        },
+        {
+          "minute": 11,
+          "stability": 69.1
+        },
+        {
+          "minute": 12,
+          "stability": 66.7
+        },
+        {
+          "minute": 13,
+          "stability": 59.6
+        },
+        {
+          "minute": 14,
+          "stability": 71.5
+        },
+        {
+          "minute": 15,
+          "stability": 76
+        },
+        {
+          "minute": 16,
+          "stability": 84.6
+        },
+        {
+          "minute": 17,
+          "stability": 76.6
+        },
+        {
+          "minute": 18,
+          "stability": 75.5
+        },
+        {
+          "minute": 19,
+          "stability": 80.2
+        },
+        {
+          "minute": 20,
+          "stability": 84.2
+        },
+        {
+          "minute": 21,
+          "stability": 86.8
+        },
+        {
+          "minute": 22,
+          "stability": 82.4
+        },
+        {
+          "minute": 23,
+          "stability": 83.2
+        },
+        {
+          "minute": 24,
+          "stability": 81.3
+        },
+        {
+          "minute": 25,
+          "stability": 80.6
+        },
+        {
+          "minute": 26,
+          "stability": 87.6
+        },
+        {
+          "minute": 27,
+          "stability": 82.6
+        },
+        {
+          "minute": 28,
+          "stability": 88.6
+        },
+        {
+          "minute": 29,
+          "stability": 85.7
+        },
+        {
+          "minute": 30,
+          "stability": 83.6
+        },
+        {
+          "minute": 31,
+          "stability": 86.8
+        },
+        {
+          "minute": 32,
+          "stability": 84.1
+        }
+      ]
+    },
+    {
+      "participant_id": 8,
+      "puuid": "mock-puuid-08-f1bbcd8c",
+      "champion": "Orianna",
+      "team": "red",
+      "role": "MIDDLE",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 78.2
+        },
+        {
+          "minute": 1,
+          "stability": 79
+        },
+        {
+          "minute": 2,
+          "stability": 86
+        },
+        {
+          "minute": 3,
+          "stability": 76.5
+        },
+        {
+          "minute": 4,
+          "stability": 82
+        },
+        {
+          "minute": 5,
+          "stability": 75.4
+        },
+        {
+          "minute": 6,
+          "stability": 85.6
+        },
+        {
+          "minute": 7,
+          "stability": 74.5
+        },
+        {
+          "minute": 8,
+          "stability": 85.1
+        },
+        {
+          "minute": 9,
+          "stability": 77.8
+        },
+        {
+          "minute": 10,
+          "stability": 75.2
+        },
+        {
+          "minute": 11,
+          "stability": 83.4
+        },
+        {
+          "minute": 12,
+          "stability": 78.2
+        },
+        {
+          "minute": 13,
+          "stability": 81.4
+        },
+        {
+          "minute": 14,
+          "stability": 81
+        },
+        {
+          "minute": 15,
+          "stability": 84.2
+        },
+        {
+          "minute": 16,
+          "stability": 82.8
+        },
+        {
+          "minute": 17,
+          "stability": 77
+        },
+        {
+          "minute": 18,
+          "stability": 79.6
+        },
+        {
+          "minute": 19,
+          "stability": 78.8
+        },
+        {
+          "minute": 20,
+          "stability": 76.6
+        },
+        {
+          "minute": 21,
+          "stability": 78.3
+        },
+        {
+          "minute": 22,
+          "stability": 86.4
+        },
+        {
+          "minute": 23,
+          "stability": 82
+        },
+        {
+          "minute": 24,
+          "stability": 81.5
+        },
+        {
+          "minute": 25,
+          "stability": 83.4
+        },
+        {
+          "minute": 26,
+          "stability": 78.8
+        },
+        {
+          "minute": 27,
+          "stability": 84.1
+        },
+        {
+          "minute": 28,
+          "stability": 88.6
+        },
+        {
+          "minute": 29,
+          "stability": 82.1
+        },
+        {
+          "minute": 30,
+          "stability": 81.3
+        },
+        {
+          "minute": 31,
+          "stability": 85.3
+        },
+        {
+          "minute": 32,
+          "stability": 81.3
+        }
+      ]
+    },
+    {
+      "participant_id": 9,
+      "puuid": "mock-puuid-09-8ff3473e",
+      "champion": "Kaisa",
+      "team": "red",
+      "role": "BOTTOM",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 80.8
+        },
+        {
+          "minute": 1,
+          "stability": 82.9
+        },
+        {
+          "minute": 2,
+          "stability": 78.4
+        },
+        {
+          "minute": 3,
+          "stability": 75.8
+        },
+        {
+          "minute": 4,
+          "stability": 81.5
+        },
+        {
+          "minute": 5,
+          "stability": 83.9
+        },
+        {
+          "minute": 6,
+          "stability": 74.8
+        },
+        {
+          "minute": 7,
+          "stability": 79.2
+        },
+        {
+          "minute": 8,
+          "stability": 66.1
+        },
+        {
+          "minute": 9,
+          "stability": 61.9
+        },
+        {
+          "minute": 10,
+          "stability": 68.8
+        },
+        {
+          "minute": 11,
+          "stability": 71.6
+        },
+        {
+          "minute": 12,
+          "stability": 83.5
+        },
+        {
+          "minute": 13,
+          "stability": 83
+        },
+        {
+          "minute": 14,
+          "stability": 77.2
+        },
+        {
+          "minute": 15,
+          "stability": 81.1
+        },
+        {
+          "minute": 16,
+          "stability": 75.9
+        },
+        {
+          "minute": 17,
+          "stability": 77.4
+        },
+        {
+          "minute": 18,
+          "stability": 83.2
+        },
+        {
+          "minute": 19,
+          "stability": 78
+        },
+        {
+          "minute": 20,
+          "stability": 78.3
+        },
+        {
+          "minute": 21,
+          "stability": 80
+        },
+        {
+          "minute": 22,
+          "stability": 79.4
+        },
+        {
+          "minute": 23,
+          "stability": 80.7
+        },
+        {
+          "minute": 24,
+          "stability": 82.7
+        },
+        {
+          "minute": 25,
+          "stability": 83.8
+        },
+        {
+          "minute": 26,
+          "stability": 88.3
+        },
+        {
+          "minute": 27,
+          "stability": 81.8
+        },
+        {
+          "minute": 28,
+          "stability": 89
+        },
+        {
+          "minute": 29,
+          "stability": 82.3
+        },
+        {
+          "minute": 30,
+          "stability": 82.8
+        },
+        {
+          "minute": 31,
+          "stability": 79
+        },
+        {
+          "minute": 32,
+          "stability": 84.1
+        }
+      ]
+    },
+    {
+      "participant_id": 10,
+      "puuid": "mock-puuid-10-2e2ac0f0",
+      "champion": "Nautilus",
+      "team": "red",
+      "role": "UTILITY",
+      "scores": [
+        {
+          "minute": 0,
+          "stability": 83
+        },
+        {
+          "minute": 1,
+          "stability": 77.8
+        },
+        {
+          "minute": 2,
+          "stability": 83.7
+        },
+        {
+          "minute": 3,
+          "stability": 79.2
+        },
+        {
+          "minute": 4,
+          "stability": 83.1
+        },
+        {
+          "minute": 5,
+          "stability": 81.1
+        },
+        {
+          "minute": 6,
+          "stability": 78.4
+        },
+        {
+          "minute": 7,
+          "stability": 75.1
+        },
+        {
+          "minute": 8,
+          "stability": 81.5
+        },
+        {
+          "minute": 9,
+          "stability": 85.9
+        },
+        {
+          "minute": 10,
+          "stability": 77.8
+        },
+        {
+          "minute": 11,
+          "stability": 78.4
+        },
+        {
+          "minute": 12,
+          "stability": 79.7
+        },
+        {
+          "minute": 13,
+          "stability": 74
+        },
+        {
+          "minute": 14,
+          "stability": 85.9
+        },
+        {
+          "minute": 15,
+          "stability": 80.8
+        },
+        {
+          "minute": 16,
+          "stability": 80.6
+        },
+        {
+          "minute": 17,
+          "stability": 75.1
+        },
+        {
+          "minute": 18,
+          "stability": 84.1
+        },
+        {
+          "minute": 19,
+          "stability": 81.4
+        },
+        {
+          "minute": 20,
+          "stability": 79.2
+        },
+        {
+          "minute": 21,
+          "stability": 80.3
+        },
+        {
+          "minute": 22,
+          "stability": 82.9
+        },
+        {
+          "minute": 23,
+          "stability": 87.7
+        },
+        {
+          "minute": 24,
+          "stability": 84.6
+        },
+        {
+          "minute": 25,
+          "stability": 85.1
+        },
+        {
+          "minute": 26,
+          "stability": 83.7
+        },
+        {
+          "minute": 27,
+          "stability": 80.8
+        },
+        {
+          "minute": 28,
+          "stability": 78.1
+        },
+        {
+          "minute": 29,
+          "stability": 87.4
+        },
+        {
+          "minute": 30,
+          "stability": 83.6
+        },
+        {
+          "minute": 31,
+          "stability": 84.8
+        },
+        {
+          "minute": 32,
+          "stability": 83
+        }
+      ]
+    }
+  ],
+  "player_radar": [
+    {
+      "participant_id": 1,
+      "metrics": {
+        "farming": 72,
+        "fighting": 68,
+        "vision": 35,
+        "objectives": 55,
+        "survival": 52,
+        "stability": 75
+      }
+    },
+    {
+      "participant_id": 2,
+      "metrics": {
+        "farming": 48,
+        "fighting": 64,
+        "vision": 70,
+        "objectives": 66,
+        "survival": 41,
+        "stability": 75
+      }
+    },
+    {
+      "participant_id": 3,
+      "metrics": {
+        "farming": 84,
+        "fighting": 77,
+        "vision": 52,
+        "objectives": 58,
+        "survival": 70,
+        "stability": 75
+      }
+    },
+    {
+      "participant_id": 4,
+      "metrics": {
+        "farming": 88,
+        "fighting": 58,
+        "vision": 31,
+        "objectives": 49,
+        "survival": 28,
+        "stability": 74
+      }
+    },
+    {
+      "participant_id": 5,
+      "metrics": {
+        "farming": 12,
+        "fighting": 60,
+        "vision": 92,
+        "objectives": 71,
+        "survival": 64,
+        "stability": 74
+      }
+    },
+    {
+      "participant_id": 6,
+      "metrics": {
+        "farming": 69,
+        "fighting": 62,
+        "vision": 48,
+        "objectives": 74,
+        "survival": 78,
+        "stability": 82
+      }
+    },
+    {
+      "participant_id": 7,
+      "metrics": {
+        "farming": 70,
+        "fighting": 83,
+        "vision": 66,
+        "objectives": 88,
+        "survival": 74,
+        "stability": 80
+      }
+    },
+    {
+      "participant_id": 8,
+      "metrics": {
+        "farming": 86,
+        "fighting": 88,
+        "vision": 57,
+        "objectives": 72,
+        "survival": 85,
+        "stability": 81
+      }
+    },
+    {
+      "participant_id": 9,
+      "metrics": {
+        "farming": 90,
+        "fighting": 91,
+        "vision": 44,
+        "objectives": 69,
+        "survival": 82,
+        "stability": 79
+      }
+    },
+    {
+      "participant_id": 10,
+      "metrics": {
+        "farming": 14,
+        "fighting": 79,
+        "vision": 95,
+        "objectives": 80,
+        "survival": 69,
+        "stability": 81
+      }
+    }
+  ]
+}
