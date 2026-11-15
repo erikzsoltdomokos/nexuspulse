@@ -6,3 +6,6 @@ backend/data/
 node_modules/
 frontend/dist/
 .pytest_cache/
+
+docs/*.docx
+docs/~$*
