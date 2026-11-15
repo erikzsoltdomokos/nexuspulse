@@ -9,3 +9,6 @@ frontend/dist/
 
 docs/*.docx
 docs/~$*
+docs/*
+!docs/DOKUMENTACIO.md
+!docs/DOKUMENTACIO.pdf
