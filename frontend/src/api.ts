@@ -5,6 +5,7 @@ import type {
   CollectResult,
   Health,
   MatchList,
+  MatchStory,
   Overview,
   TimelineDynamics,
 } from './types';
@@ -74,6 +75,7 @@ export const api = {
       300_000,
     ),
   overview: (id: string) => request<Overview>(`/analysis/${encodeURIComponent(id)}/overview`),
+  summary: (id: string) => request<MatchStory>(`/analysis/${encodeURIComponent(id)}/summary`, {}, 60_000),
   dynamics: (id: string) => request<TimelineDynamics>(`/analysis/${encodeURIComponent(id)}/timeline-dynamics`, {}, 60_000),
 };
 

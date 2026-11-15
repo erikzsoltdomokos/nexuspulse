@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ApiError, api, loadDemo } from './api';
-import type { CollectResult, Health, MatchSummary, Overview, TimelineDynamics } from './types';
+import type { CollectResult, Health, MatchStory, MatchSummary, Overview, TimelineDynamics } from './types';
 import { Header } from './components/Header';
 import { OverviewStrip } from './components/OverviewStrip';
 import { TimelineChart } from './components/TimelineChart';
 import { InflectionPanel } from './components/InflectionPanel';
 import { PlayerPanel } from './components/PlayerPanel';
+import { SummaryPanel } from './components/SummaryPanel';
 import { useI18n } from './i18n';
 
 type HealthState = 'loading' | 'ok' | 'down';
@@ -23,6 +24,7 @@ export default function App() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [overview, setOverview] = useState<Overview | null>(null);
   const [dynamics, setDynamics] = useState<TimelineDynamics | null>(null);
+  const [story, setStory] = useState<MatchStory | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [demo, setDemo] = useState(false);
@@ -55,8 +57,9 @@ export default function App() {
     void checkBackend();
   }, [checkBackend]);
 
-  const applyMatch = (o: Overview | null, d: TimelineDynamics) => {
+  const applyMatch = (o: Overview | null, d: TimelineDynamics, s: MatchStory | null = null) => {
     setOverview(o);
+    setStory(s);
     setDynamics(d);
     setActiveInflection(null);
     setFocus(null);
@@ -71,8 +74,9 @@ export default function App() {
     setLoading(true);
     setError(null);
     try {
-      const [o, d] = await Promise.all([api.overview(id), api.dynamics(id)]);
-      applyMatch(o, d);
+      // The summary is optional: an older backend without the endpoint still renders the dashboard.
+      const [o, d, s] = await Promise.all([api.overview(id), api.dynamics(id), api.summary(id).catch(() => null)]);
+      applyMatch(o, d, s);
     } catch (err) {
       setError(i18nRef.current.t('couldNotLoad', { id, msg: errMsg(err) }));
       if (err instanceof ApiError && err.unreachable) setHealthState('down');
@@ -205,6 +209,7 @@ export default function App() {
         {dynamics && (
           <>
             {overview && <OverviewStrip overview={overview} selectedId={selectedPlayer} onSelect={setSelectedPlayer} />}
+            {story && <SummaryPanel story={story} onFocusMinute={focusMinute} />}
             <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_380px]">
               <TimelineChart
                 dynamics={dynamics}

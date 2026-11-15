@@ -21,6 +21,7 @@ from .ingest import collect_match, collect_player, seed_synthetic
 from .models.registry import get_bundle, train_all
 from .riot_client import RiotApiError, RiotClient
 from .static_data import load_items
+from .summary import match_summary
 from .timeline import parse_match
 
 log = logging.getLogger("nexuspulse")
@@ -150,6 +151,11 @@ def api_timeline_dynamics(
     delta: float | None = Query(None, ge=0.01, le=0.5, description="inflection threshold |dP(win)|"),
     session: Session = Depends(get_session),
 ):
+    return _dynamics(session, match_id, delta)
+
+
+def _dynamics(session: Session, match_id: str, delta: float | None = None, pm=None) -> dict:
+    """Timeline-dynamics payload, served from AnalysisCache when available."""
     bundle = get_bundle()
     if bundle is None:
         raise HTTPException(503, f"models not ready ({_bootstrap_state['status']}): {_bootstrap_state['detail']}")
@@ -158,11 +164,18 @@ def api_timeline_dynamics(
     cached = session.get(AnalysisCache, (match_id.upper(), cache_key))
     if cached is not None:
         return json.loads(cached.payload)
-    payload = timeline_dynamics(_load_parsed(session, match_id), bundle, delta)
+    payload = timeline_dynamics(pm or _load_parsed(session, match_id), bundle, delta)
     session.merge(AnalysisCache(match_id=match_id.upper(), model_version=cache_key,
                                 payload=json.dumps(payload, separators=(",", ":"))))
     session.commit()
     return payload
+
+
+@app.get("/api/analysis/{match_id}/summary")
+def api_summary(match_id: str, session: Session = Depends(get_session)):
+    """Structured match story (codes + params); see nexuspulse.summary for the formulas."""
+    pm = _load_parsed(session, match_id)
+    return match_summary(pm, _dynamics(session, match_id, pm=pm))
 
 
 # Serve the built dashboard (frontend/dist) from the same origin when present.

@@ -129,6 +129,22 @@ def run(base: str) -> None:
         full_shot(page, "02_dashboard_en.png")
         check("english UI", "Win probability" in page.inner_text("body") or "win probability" in page.inner_text("body").lower())
 
+        # 8: match summary panel (HU)
+        open_match(page, base, MAIN_MATCH, "hu")
+        summary = page.locator("section[aria-labelledby='summary-title']")
+        summary.wait_for(timeout=30_000)
+        text = summary.inner_text().lower()
+        check("summary panel rendered", "meccs-összefoglaló" in text and "mvp" in text, repr(text[:120]))
+        check("summary has should-have-performed-better callout", "többet kellett volna hoznia" in text)
+        summary.screenshot(path=str(OUT / "08_summary_hu.png"))
+        page.mouse.move(5, 5)
+        before = chart_hash(page)
+        summary.locator("button[aria-label]").first.click()
+        page.wait_for_timeout(1200)
+        page.mouse.move(5, 5)
+        page.wait_for_timeout(300)
+        check("summary minute click zooms chart", chart_hash(page) != before)
+
         # 3: hover tooltip around minute 26
         open_match(page, base, MAIN_MATCH, "hu")
         section = page.locator("section[aria-labelledby='timeline-title']")

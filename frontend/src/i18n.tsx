@@ -142,6 +142,42 @@ const en = {
   noAnomalies: 'No behavioural anomalies detected for this player.',
   anomalyAria: 'Minute {m}, {type}, severity {sev}. {desc} Select to zoom the timeline.',
   scoreN: 'score {s}',
+
+  // Match summary
+  sumTitle: 'Match summary',
+  sumOutcome: '{winner} won after {d} minutes.',
+  sumDecisive: 'The decisive moment came at minute {m}: {winner} win probability jumped from {from} to {to} in a single minute.',
+  sumDrivers: 'Main drivers: {list}.',
+  sumPnr: 'From minute {m} there was no way back: {winner} stayed above 50% for the rest of the game.',
+  sumNoPnr: 'The model never had the winner above 50% at the end, so this was an upset.',
+  sumPeakHigh: '{loser} was at {p} win probability at minute {m}, so this game was winnable.',
+  sumPeakLow: "{loser}'s best chance was {p} (minute {m}); the winner controlled the game throughout.",
+  sumThrow: 'The game turned between minute {s} and minute {e}: {loser} dropped from {from} to {to}.',
+  sumDrops: 'Biggest drops: {list}.',
+  sumDropItem: 'minute {m} ({d}; {drivers})',
+  sumPower: "{team}'s theoretical power window was minutes {range} (mean power index {idx}).",
+  sumPowerNone: '{team} had no detectable power window.',
+  sumLoserWindowLost: '{loser} lost ground even inside its own power window ({d}).',
+  sumLoserWindowGained: '{loser} gained during its own power window ({d}) but could not convert it into a win.',
+  sumMvp: 'MVP: {player}, rated {r}/100.',
+  sumLoserBest: 'Best player on the losing side: {player} ({r}/100).',
+  sumShpbTitle: 'Should have performed better',
+  sumShpb: '{player} ({r}/100) was the lowest-rated player on the losing side.',
+  sumReasons: 'Reasons: {list}.',
+  rDeaths: '{n} deaths',
+  rLane: '{g} gold behind the lane opponent ({opp}) at minute {m}',
+  rTilt: 'tilt events at minute {list}',
+  rStab: 'low mean stability ({s}/100)',
+  rDmg: 'only {p} of team damage',
+  rWeak: 'weakest component: {c}',
+  compKda: 'KDA',
+  compEconomy: 'economy',
+  compStability: 'stability',
+  compComposure: 'composure (tilt)',
+  compLane: 'laning',
+  sumRatingNote: 'Rating 0-100 from KDA, gold and damage share, stability, tilt events and gold vs lane opponent at 15:00.',
+  sumUnavailable: 'Match summary unavailable.',
+  zoomTo: 'Zoom the timeline to minute {m}',
 } as const;
 
 export type TKey = keyof typeof en;
@@ -273,6 +309,41 @@ const hu: Record<TKey, string> = {
   noAnomalies: 'Ennél a játékosnál nem észleltünk viselkedési anomáliát.',
   anomalyAria: '{m}. perc, {type}, súlyosság: {sev}. {desc} Kiválasztással ráközelít az idővonalra.',
   scoreN: 'pontszám: {s}',
+
+  sumTitle: 'Meccs-összefoglaló',
+  sumOutcome: 'A {winner} csapat nyert {d} perc után.',
+  sumDecisive: 'A döntő pillanat {am} percben jött: a {winner} csapat győzelmi esélye egyetlen perc alatt {from}-ról {to}-ra ugrott.',
+  sumDrivers: 'Fő okok: {list}.',
+  sumPnr: '{Am} perctől nem volt visszaút: onnantól a {winner} csapat esélye végig 50% felett maradt.',
+  sumNoPnr: 'A modell szerint a győztes esélye a végén sem volt 50% felett, ez meglepetésgyőzelem volt.',
+  sumPeakHigh: 'A {loser} csapat {am} percben {p}-os győzelmi esélyen állt, vagyis ezt a meccset meg lehetett volna nyerni.',
+  sumPeakLow: 'A {loser} csapat legjobb esélye {p} volt ({am} percben), a győztes végig kézben tartotta a meccset.',
+  sumThrow: 'A meccs {as} és {ae} perc között fordult meg: a {loser} csapat esélye {from}-ról {to}-ra zuhant.',
+  sumDrops: 'A legnagyobb esések: {list}.',
+  sumDropItem: '{mm} perc ({d}; {drivers})',
+  sumPower: 'A {team} csapat elméleti erőablaka {range} perc volt (átlagos erőindex: {idx}).',
+  sumPowerNone: 'A {team} csapatnak nem volt kimutatható erőablaka.',
+  sumLoserWindowLost: 'A {loser} csapat még a saját erőablakában is veszített az esélyéből ({d}).',
+  sumLoserWindowGained: 'A {loser} csapat a saját erőablakában javított az esélyén ({d}), de ezt nem tudta győzelemre váltani.',
+  sumMvp: 'MVP: {player}, {r}/100 pontos értékeléssel.',
+  sumLoserBest: 'A vesztes csapat legjobbja: {player} ({r}/100).',
+  sumShpbTitle: 'Többet kellett volna hoznia',
+  sumShpb: '{player} ({r}/100) a vesztes csapat legalacsonyabb értékelésű játékosa.',
+  sumReasons: 'Okok: {list}.',
+  rDeaths: '{n} halál',
+  rLane: '{g} arannyal lemaradt a sávellenfelétől ({opp}) {am} percben',
+  rTilt: 'tilt-esemény: {list} perc',
+  rStab: 'alacsony átlagos stabilitás ({s}/100)',
+  rDmg: 'a csapat sebzésének csak {p}-át adta',
+  rWeak: 'leggyengébb mutató: {c}',
+  compKda: 'KDA',
+  compEconomy: 'gazdaság',
+  compStability: 'stabilitás',
+  compComposure: 'higgadtság (tilt)',
+  compLane: 'sávjáték',
+  sumRatingNote: 'Értékelés 0–100 között: KDA, arany- és sebzésrészesedés, stabilitás, tilt-események és a sávellenféllel szembeni aranykülönbség a 15. percben.',
+  sumUnavailable: 'A meccs-összefoglaló nem érhető el.',
+  zoomTo: 'Idővonal ráközelítése a(z) {m}. percre',
 };
 
 const DICT: Record<Lang, Record<TKey, string>> = { en, hu };
@@ -409,6 +480,8 @@ export interface I18n {
   /** BCP 47 locale for number/date formatting. */
   locale: string;
   t: (key: TKey, vars?: Record<string, string | number>) => string;
+  /** Raw template for rich (node) interpolation. */
+  raw: (key: TKey) => string;
   team: (t: Team) => string;
   feature: (f: Pick<ShapFeature, 'feature' | 'label'>) => string;
   anomalyType: (a: AnomalyType) => string;
@@ -456,6 +529,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       toggleLang: () => setLang(lang === 'hu' ? 'en' : 'hu'),
       locale: lang === 'hu' ? 'hu-HU' : 'en-US',
       t,
+      raw: (key) => dict[key],
       team,
       feature,
       anomalyType: (a) => ANOMALY[lang][a] ?? a,

@@ -163,3 +163,64 @@ export interface TimelineDynamics {
   player_stability: PlayerStability[];
   player_radar: PlayerRadar[];
 }
+
+// --- Match summary (/api/analysis/{id}/summary) -------------------------------
+export interface SummaryDriver {
+  feature: string;
+  label: string;
+  /** Positive = toward the winner. */
+  contribution: number;
+}
+
+export interface SummaryPlayer {
+  participant_id: number;
+  riot_id: string;
+  champion: string;
+  team: Team;
+  role: Role | 'UNKNOWN';
+  rating: number;
+  components: { kda: number; economy: number; stability: number; composure: number; lane: number };
+  kills: number;
+  deaths: number;
+  assists: number;
+  gold_share: number;
+  damage_share: number;
+  mean_stability: number;
+  tilt_minutes: number[];
+  tilt_severity: Severity | null;
+  lane_minute: number;
+  lane_gold_diff: number | null;
+  lane_opponent: string | null;
+}
+
+export type SummaryReason =
+  | { code: 'DEATHS'; deaths: number }
+  | { code: 'LANE_GOLD'; diff: number; minute: number; opponent: string | null }
+  | { code: 'TILT'; minutes: number[]; severity: Severity | null }
+  | { code: 'LOW_STABILITY'; mean: number }
+  | { code: 'LOW_DAMAGE'; share: number }
+  | { code: 'WEAKEST_COMPONENT'; component: keyof SummaryPlayer['components']; value: number };
+
+export interface MatchStory {
+  match_id: string;
+  outcome: { winner: Team; loser: Team; duration_min: number };
+  decisive_moment: { minute: number; delta: number; p_before: number; p_after: number; drivers: SummaryDriver[] } | null;
+  point_of_no_return: { minute: number; p: number } | null;
+  loser_peak: { team: Team; p: number; minute: number; could_have_won: boolean } | null;
+  throw_window: {
+    start: number;
+    end: number;
+    p_start: number;
+    p_end: number;
+    drops: { minute: number; delta: number; drivers: SummaryDriver[] }[];
+  } | null;
+  power_windows: {
+    blue: { start: number; end: number; mean_index: number } | null;
+    red: { start: number; end: number; mean_index: number } | null;
+    loser_window: { delta: number; lost: boolean } | null;
+  };
+  players: SummaryPlayer[];
+  mvp: number | null;
+  loser_best: number | null;
+  should_have_performed_better: { participant_id: number; rating: number; reasons: SummaryReason[] } | null;
+}
