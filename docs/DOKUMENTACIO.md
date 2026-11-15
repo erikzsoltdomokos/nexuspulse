@@ -136,7 +136,7 @@ A teljes beszélgetés (saját promptjaim szó szerint, Gemini válaszai összef
 
 12. **A specifikáció minősége meghatározza az eredményt.** A Geminivel készített részletes specifikáció (modulok, algoritmusok, API-szerződés, színek) után az ágens egy menetben felépítette a rendszert. Hasznos volt két különböző modellt használni: az egyiket ötletelésre, a másikat megvalósításra.
 13. **A rögzített API-szerződés lehetővé tette a párhuzamos munkát.** A backendet és a frontendet két ágens párhuzamosan írta; mivel a JSON-formátum előre rögzítve volt, az összekötésnél egyik oldalon sem kellett módosítani.
-14. **Az ágens „kész” állítását ellenőrizni kell.** Az első integrációnál a dashboard üres képernyővel nyílt meg; a hover-tooltipeket és a kattintásos zoomot kezdetben csak statikus képernyőképeken ellenőrizte. A tesztek (12 → 15) és a valódi böngészős kipróbálás nélkül ezek a hibák rejtve maradtak volna.
+14. **Az ágens „kész” állítását ellenőrizni kell.** Az első integrációnál a dashboard üres képernyővel nyílt meg; a hover-tooltipeket és a kattintásos zoomot kezdetben csak statikus képernyőképeken ellenőrizte. A tesztek (12 → 15) és a valódi böngészős kipróbálás nélkül ezek a hibák rejtve maradtak volna. Amikor a beadás napján egy külön al-ágens Playwrighttal ténylegesen végigkattintotta a felületet (12 interakciós ellenőrzés, mind sikeres), további hibákat talált: üres meccsválasztó `?match=` hivatkozásnál, levágott tengelyfelirat („per” a „perc” helyett), és egy tartalmi ellentmondást – ugyanarra a percre a tooltip és a fordulópont-panel kissé eltérő SHAP-bontást mutat, mert két különböző mezőből számolnak. Az automatizált tesztek mindegyik mellett zölden futottak.
 15. **A futtatási környezet korlátai is tanulságosak.** Az ágens biztonsági szabályai egy ártalmatlan parancsot tévesen blokkoltak, a háttérben indított hosszú adatgyűjtés pedig csendben leállt, mert az ágens futtatókörnyezete leállítja a gyermekfolyamatokat. A megoldás: rövidebb, előtérben futó adagok egy al-ágensben, miközben a fő ágens a dokumentációt írta.
 16. **Az MI gyorsít, de a döntések az emberé maradnak.** Melyik három ötletet vonjam össze, valódi vagy szintetikus adattal adjak-e be, és hogyan értelmezzem a túl gyakori tilt-jelzéseket – ezeket nekem kellett eldöntenem.
 
@@ -147,6 +147,7 @@ A teljes beszélgetés (saját promptjaim szó szerint, Gemini válaszai összef
 
 ## 5. Továbbfejlesztési lehetőségek
 
+- Ismert hibák javítása: a tooltip és a fordulópont-panel SHAP-bontásának egységesítése; a fordulópont-kártya szövege előjel nélkül írja ki a hozzájárulásokat; sok fordulópont esetén egymásra csúsznak a grafikon feliratai.
 - Időfüggő fordulópont-küszöb, az élő játékosok különbségének simítása.
 - A tilt-detektor kalibrálása címkézett saját meccsekkel; játékosonkénti (nem csak szerepkörönkénti) alapszint.
 - Több adat (több ezer meccs, több patch) a késői percek megbízhatóbb méréséhez.
