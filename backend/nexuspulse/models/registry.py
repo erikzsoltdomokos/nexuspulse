@@ -34,16 +34,33 @@ class ModelBundle:
     manifest: dict = field(default_factory=dict)
 
 
+MIN_TRAINING_DURATION_S = 300
+
+
+def is_remake(match: dict) -> bool:
+    """Remakes / early surrenders carry no real outcome signal and are label noise for training."""
+    info = match.get("info", {})
+    if int(info.get("gameDuration", 0)) < MIN_TRAINING_DURATION_S:
+        return True
+    return any(p.get("gameEndedInEarlySurrender") for p in info.get("participants", []))
+
+
 def load_corpus(session: Session, source: str | None = None, limit: int | None = None) -> list[ParsedMatch]:
     parsed = []
+    skipped_remakes = 0
     for row in iter_matches(session, source):
         try:
             match, timeline = row.match_dict(), row.timeline_dict()
+            if is_remake(match):
+                skipped_remakes += 1
+                continue
             parsed.append(parse_match(match, timeline, load_items(row.game_version)))
         except Exception as exc:  # noqa: BLE001 -- skip malformed matches, keep training
             log.warning("skipping %s: %s", row.match_id, exc)
         if limit and len(parsed) >= limit:
             break
+    if skipped_remakes:
+        log.info("skipped %d remakes / early surrenders", skipped_remakes)
     return parsed
 
 

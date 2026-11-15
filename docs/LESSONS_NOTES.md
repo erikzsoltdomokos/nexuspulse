@@ -20,3 +20,6 @@ Collected during the project; turned into the Hungarian "Tanulságok" section at
 ## Finishing (2026-11-15, deadline day)
 - Real data collection with a 24 h development key.
 - Hungarian/English UI toggle added for the Hungarian submission.
+- Multi-region: Match-v5 and Account-v1 use regional routing (EUW and EUNE both "europe"), so the user's own EUNE games worked without changes; only the Challenger ladder lookup (League-v4) is per server -> added a --platform flag, training corpus = EUW + EUNE Challenger.
+- Key validated by pulling the author's own 20 EUNE ranked games first (Luda1060#ZSID).
+- Running a long crawl as a detached background process failed silently (the agent's runtime kills child processes when the shell call returns; the gateway's command scheduler needs a POSIX shell, which Windows lacks) -> the crawl was run in foreground chunks of under 25 minutes by a subagent while the main agent wrote the documentation.
