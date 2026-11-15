@@ -6,10 +6,17 @@ import { OverviewStrip } from './components/OverviewStrip';
 import { TimelineChart } from './components/TimelineChart';
 import { InflectionPanel } from './components/InflectionPanel';
 import { PlayerPanel } from './components/PlayerPanel';
+import { useI18n } from './i18n';
 
 type HealthState = 'loading' | 'ok' | 'down';
 
 export default function App() {
+  const i18n = useI18n();
+  const { t } = i18n;
+  // Callbacks read the current language through a ref so they stay referentially stable.
+  const i18nRef = useRef(i18n);
+  i18nRef.current = i18n;
+  const errMsg = (err: unknown) => i18nRef.current.errorText(err instanceof Error ? err.message : String(err));
   const [health, setHealth] = useState<Health | null>(null);
   const [healthState, setHealthState] = useState<HealthState>('loading');
   const [matches, setMatches] = useState<MatchSummary[]>([]);
@@ -40,7 +47,7 @@ export default function App() {
     } catch (err) {
       setHealth(null);
       setHealthState(err instanceof ApiError && !err.unreachable ? 'ok' : 'down');
-      if (!(err instanceof ApiError && err.unreachable)) setError(err instanceof Error ? err.message : String(err));
+      if (!(err instanceof ApiError && err.unreachable)) setError(errMsg(err));
     }
   }, [refreshMatches]);
 
@@ -67,7 +74,7 @@ export default function App() {
       const [o, d] = await Promise.all([api.overview(id), api.dynamics(id)]);
       applyMatch(o, d);
     } catch (err) {
-      setError(`Could not load ${id}: ${err instanceof Error ? err.message : String(err)}`);
+      setError(i18nRef.current.t('couldNotLoad', { id, msg: errMsg(err) }));
       if (err instanceof ApiError && err.unreachable) setHealthState('down');
     } finally {
       setLoading(false);
@@ -93,7 +100,7 @@ export default function App() {
       setSelectedId(null);
       applyMatch(o, d);
     } catch (err) {
-      setError(`Could not load demo data: ${err instanceof Error ? err.message : String(err)}`);
+      setError(t('couldNotLoadDemo', { msg: errMsg(err) }));
     } finally {
       setLoading(false);
     }
@@ -140,7 +147,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-app text-slate-100">
       <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:rounded focus:bg-amber-500 focus:px-3 focus:py-1 focus:text-slate-950">
-        Skip to content
+        {t('skipToContent')}
       </a>
       <Header
         health={health}
@@ -156,14 +163,14 @@ export default function App() {
       <main id="main" className="mx-auto max-w-[1600px] space-y-4 px-4 py-4">
         {healthState === 'down' && !demo && (
           <div role="alert" className="flex flex-wrap items-center gap-3 rounded-lg border border-amber-600 bg-amber-950 px-4 py-3 text-amber-100">
-            <span className="font-semibold">Backend unreachable.</span>
-            <span className="text-sm text-amber-200">The analytics API at /api is not responding (expected on http://127.0.0.1:8000).</span>
+            <span className="font-semibold">{t('backendDown')}</span>
+            <span className="text-sm text-amber-200">{t('backendDownDetail')}</span>
             <div className="ml-auto flex gap-2">
               <button type="button" onClick={() => void checkBackend()} className="rounded bg-slate-800 px-3 py-1.5 text-sm font-medium text-slate-100 hover:bg-slate-700">
-                Retry
+                {t('retry')}
               </button>
               <button type="button" onClick={() => void loadDemoData()} className="rounded bg-amber-500 px-3 py-1.5 text-sm font-semibold text-slate-950 hover:bg-amber-400">
-                Load demo data
+                {t('loadDemo')}
               </button>
             </div>
           </div>
@@ -172,8 +179,8 @@ export default function App() {
         {error && (
           <div role="alert" className="flex items-center gap-3 rounded-lg border border-rose-700 bg-rose-950 px-4 py-3 text-sm text-rose-100">
             <span>{error}</span>
-            <button type="button" onClick={() => setError(null)} className="ml-auto rounded bg-rose-900 px-2 py-1 text-xs text-rose-50 hover:bg-rose-800" aria-label="Dismiss error">
-              Dismiss
+            <button type="button" onClick={() => setError(null)} className="ml-auto rounded bg-rose-900 px-2 py-1 text-xs text-rose-50 hover:bg-rose-800" aria-label={t('dismissError')}>
+              {t('dismiss')}
             </button>
           </div>
         )}
@@ -181,16 +188,16 @@ export default function App() {
         {loading && (
           <div role="status" aria-live="polite" className="flex items-center gap-3 rounded-lg bg-slate-900 px-4 py-3 text-slate-300">
             <span className="h-4 w-4 animate-spin rounded-full border-2 border-slate-600 border-t-cyan-400" aria-hidden="true" />
-            Loading match analysis…
+            {t('loadingAnalysis')}
           </div>
         )}
 
         {!dynamics && !loading && (
           <div className="rounded-lg border border-dashed border-slate-700 bg-slate-900 px-6 py-12 text-center text-slate-300">
-            <p className="text-lg font-semibold text-slate-100">No match loaded</p>
-            <p className="mt-1 text-sm">Pick a stored match, collect one by ID or Riot ID, or explore the demo game.</p>
+            <p className="text-lg font-semibold text-slate-100">{t('noMatchLoaded')}</p>
+            <p className="mt-1 text-sm">{t('noMatchHint')}</p>
             <button type="button" onClick={() => void loadDemoData()} className="mt-4 rounded bg-amber-500 px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-amber-400">
-              Load demo data
+              {t('loadDemo')}
             </button>
           </div>
         )}

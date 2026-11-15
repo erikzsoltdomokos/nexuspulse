@@ -5,7 +5,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { PlayerAnomaly, TimelineDynamics, TimelinePoint } from '../types';
 import { useEChart, type EChartsInstance, echarts } from '../echarts';
-import { COLORS, ROLE_ORDER, ROLE_SHORT, escapeHtml, humanize, pct, signedGold, signedPct } from '../theme';
+import { COLORS, ROLE_ORDER, ROLE_SHORT, escapeHtml, pct, signedGold, signedPct } from '../theme';
+import { useI18n, type I18n } from '../i18n';
 
 interface Props {
   dynamics: TimelineDynamics;
@@ -31,7 +32,7 @@ interface Lane {
   label: string;
 }
 
-function shapHtml(point: TimelinePoint): string {
+function shapHtml(point: TimelinePoint, i18n: I18n): string {
   if (!point.shap_summary.length) return '';
   const max = Math.max(...point.shap_summary.map((f) => Math.abs(f.contribution)), 0.01);
   const rows = point.shap_summary
@@ -40,14 +41,16 @@ function shapHtml(point: TimelinePoint): string {
       const w = (Math.abs(f.contribution) / max) * 50;
       const color = pos ? COLORS.blue : COLORS.red;
       const bar = `<span style="position:absolute;top:0;bottom:0;${pos ? 'left:50%' : 'right:50%'};width:${w}%;background:${color};border-radius:2px"></span>`;
-      return `<div style="margin-top:4px"><div style="display:flex;justify-content:space-between;gap:12px"><span>${escapeHtml(f.label)}</span><b style="color:${color}">${signedPct(f.contribution)}</b></div>
+      return `<div style="margin-top:4px"><div style="display:flex;justify-content:space-between;gap:12px"><span>${escapeHtml(i18n.feature(f))}</span><b style="color:${color}">${signedPct(f.contribution)}</b></div>
         <div style="position:relative;height:6px;background:#334155;border-radius:2px"><span style="position:absolute;left:50%;top:0;bottom:0;width:1px;background:#94a3b8"></span>${bar}</div></div>`;
     })
     .join('');
-  return `<div style="margin-top:6px;border-top:1px solid #334155;padding-top:4px"><div style="color:#94a3b8;font-size:11px">Why it moved (SHAP)</div>${rows}</div>`;
+  return `<div style="margin-top:6px;border-top:1px solid #334155;padding-top:4px"><div style="color:#94a3b8;font-size:11px">${escapeHtml(i18n.t('whyMoved'))}</div>${rows}</div>`;
 }
 
 export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSelectInflection, focus }: Props) {
+  const i18n = useI18n();
+  const { t, team: teamLabel, anomalyType, severity, anomalyDescription, locale } = i18n;
   const [hoveredAnomaly, setHoveredAnomaly] = useState<PlayerAnomaly | null>(null);
   const handlers = useRef({ onSelectPlayer, onSelectInflection });
   handlers.current = { onSelectPlayer, onSelectInflection };
@@ -93,7 +96,7 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
       dynamics.power_windows[team].map((w) => [
         {
           xAxis: idxOf(w.start),
-          name: `${team === 'blue' ? 'Blue' : 'Red'} power window`,
+          name: t('powerWindow', { team: teamLabel(team) }),
           itemStyle: { color: team === 'blue' ? 'rgba(6,182,212,0.10)' : 'rgba(244,63,94,0.10)' },
           label: { color: team === 'blue' ? COLORS.blue : COLORS.red },
         },
@@ -125,18 +128,18 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
       const anomalies = anomaliesByMinute.get(i) ?? [];
       const anomalyHtml = anomalies.length
         ? `<div style="margin-top:6px;border-top:1px solid #334155;padding-top:4px">${anomalies
-            .map((a) => `<div style="color:${COLORS.amber}">▲ ${escapeHtml(a.champion)} · ${humanize(a.anomaly_type)} (${a.severity})</div>`)
+            .map((a) => `<div style="color:${COLORS.amber}">▲ ${escapeHtml(a.champion)} · ${escapeHtml(anomalyType(a.anomaly_type))} (${escapeHtml(severity(a.severity))})</div>`)
             .join('')}</div>`
         : '';
       return `<div style="min-width:220px;max-width:300px;white-space:normal">
-        <div style="display:flex;justify-content:space-between"><b>Minute ${p.minute}</b>${p.is_inflection_point ? `<span style="color:${COLORS.amber}">◆ inflection</span>` : ''}</div>
-        <div style="margin-top:4px">Blue win prob <b style="color:${COLORS.blue}">${pct(p.win_probability_blue, 1)}</b>
+        <div style="display:flex;justify-content:space-between"><b>${escapeHtml(t('minuteN', { n: p.minute }))}</b>${p.is_inflection_point ? `<span style="color:${COLORS.amber}">◆ ${escapeHtml(t('inflectionTag'))}</span>` : ''}</div>
+        <div style="margin-top:4px">${t('blueWinProbShort')} <b style="color:${COLORS.blue}">${pct(p.win_probability_blue, 1)}</b>
           <span style="color:${p.delta_win_probability >= 0 ? COLORS.blue : COLORS.red}">(${signedPct(p.delta_win_probability)})</span></div>
-        <div>Power <span style="color:${COLORS.blue}">${p.team_blue_power_index.toFixed(0)}</span> vs <span style="color:${COLORS.red}">${p.team_red_power_index.toFixed(0)}</span></div>
-        <div>Gold <span style="color:${COLORS.blue}">${s.gold_blue.toLocaleString()}</span> / <span style="color:${COLORS.red}">${s.gold_red.toLocaleString()}</span> (${signedGold(s.gold_diff)})</div>
-        <div>Items <span style="color:${COLORS.blue}">${s.items_completed_blue}</span> / <span style="color:${COLORS.red}">${s.items_completed_red}</span> · Kills ${s.kills_blue}–${s.kills_red}</div>
-        <div>Drakes ${s.dragons_blue}–${s.dragons_red} · Barons ${s.barons_blue}–${s.barons_red} · Towers ${s.towers_blue}–${s.towers_red}</div>
-        ${shapHtml(p)}${anomalyHtml}</div>`;
+        <div>${t('power')} <span style="color:${COLORS.blue}">${p.team_blue_power_index.toFixed(0)}</span> ${t('versus')} <span style="color:${COLORS.red}">${p.team_red_power_index.toFixed(0)}</span></div>
+        <div>${t('gold')} <span style="color:${COLORS.blue}">${s.gold_blue.toLocaleString(locale)}</span> / <span style="color:${COLORS.red}">${s.gold_red.toLocaleString(locale)}</span> (${signedGold(s.gold_diff)})</div>
+        <div>${t('items')} <span style="color:${COLORS.blue}">${s.items_completed_blue}</span> / <span style="color:${COLORS.red}">${s.items_completed_red}</span> · ${t('kills')} ${s.kills_blue}–${s.kills_red}</div>
+        <div>${t('drakes')} ${s.dragons_blue}–${s.dragons_red} · ${t('barons')} ${s.barons_blue}–${s.barons_red} · ${t('towers')} ${s.towers_blue}–${s.towers_red}</div>
+        ${shapHtml(p, i18n)}${anomalyHtml}</div>`;
     };
 
     return {
@@ -163,7 +166,7 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
           axisLine: { lineStyle: { color: '#475569' } }, axisLabel: { color: COLORS.muted }, axisTick: { show: false },
         },
         {
-          type: 'category', gridIndex: 1, data: cats, boundaryGap: true, name: 'minute', nameLocation: 'end', nameGap: 6,
+          type: 'category', gridIndex: 1, data: cats, boundaryGap: true, name: t('axisMinute'), nameLocation: 'end', nameGap: 6,
           nameTextStyle: { color: COLORS.muted }, axisLine: { lineStyle: { color: '#475569' } }, axisLabel: { color: COLORS.muted }, axisTick: { show: false },
         },
       ],
@@ -172,7 +175,7 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
           type: 'value', gridIndex: 0, min: 0, max: 100, interval: 25,
           axisLabel: { color: COLORS.muted, formatter: '{value}%' },
           splitLine: { lineStyle: { color: '#1e293b' } },
-          name: 'Blue win probability', nameTextStyle: { color: COLORS.muted, align: 'left' },
+          name: t('blueWinProbability'), nameTextStyle: { color: COLORS.muted, align: 'left' },
         },
         {
           type: 'category', gridIndex: 1, data: lanes.map((l) => l.label), inverse: true,
@@ -207,19 +210,19 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
       },
       series: [
         {
-          name: 'Blue power index', type: 'line', xAxisIndex: 0, yAxisIndex: 0, smooth: true, symbol: 'none',
+          name: t('bluePowerIndex'), type: 'line', xAxisIndex: 0, yAxisIndex: 0, smooth: true, symbol: 'none',
           data: tl.map((t) => t.team_blue_power_index),
           lineStyle: { color: COLORS.blue, width: 1, opacity: 0.35 }, itemStyle: { color: COLORS.blue },
           areaStyle: { color: COLORS.blue, opacity: 0.1 }, z: 1,
         },
         {
-          name: 'Red power index', type: 'line', xAxisIndex: 0, yAxisIndex: 0, smooth: true, symbol: 'none',
+          name: t('redPowerIndex'), type: 'line', xAxisIndex: 0, yAxisIndex: 0, smooth: true, symbol: 'none',
           data: tl.map((t) => t.team_red_power_index),
           lineStyle: { color: COLORS.red, width: 1, opacity: 0.35 }, itemStyle: { color: COLORS.red },
           areaStyle: { color: COLORS.red, opacity: 0.1 }, z: 1,
         },
         {
-          name: 'Blue win probability', type: 'line', xAxisIndex: 0, yAxisIndex: 0, smooth: 0.3,
+          name: t('blueWinProbability'), type: 'line', xAxisIndex: 0, yAxisIndex: 0, smooth: 0.3,
           symbol: 'circle', symbolSize: 5, showSymbol: false,
           data: tl.map((t) => Math.round(t.win_probability_blue * 1000) / 10),
           lineStyle: { width: 3, color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -246,18 +249,18 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
           },
         },
         {
-          name: 'Stability', type: 'heatmap', xAxisIndex: 1, yAxisIndex: 1, data: heatData,
+          name: t('stability'), type: 'heatmap', xAxisIndex: 1, yAxisIndex: 1, data: heatData,
           itemStyle: { borderColor: '#0f172a', borderWidth: 1 },
           emphasis: { itemStyle: { borderColor: '#e2e8f0', borderWidth: 1 } }, z: 1,
         },
         {
-          name: 'Anomalies', type: 'scatter', xAxisIndex: 1, yAxisIndex: 1, symbol: 'roundRect', data: anomalyData,
+          name: t('anomalies'), type: 'scatter', xAxisIndex: 1, yAxisIndex: 1, symbol: 'roundRect', data: anomalyData,
           itemStyle: { color: COLORS.amber, borderColor: '#0f172a', borderWidth: 1.5, shadowBlur: 6, shadowColor: 'rgba(245,158,11,0.6)' },
           emphasis: { scale: 1.4 }, z: 5,
         },
       ],
     } satisfies echarts.EChartsCoreOption;
-  }, [dynamics, minutes, idxOf, lanes, laneIdx, selectedPlayer]);
+  }, [dynamics, minutes, idxOf, lanes, laneIdx, selectedPlayer, i18n]);
 
   const onInit = (chart: EChartsInstance) => {
     chart.on('click', (raw) => {
@@ -312,32 +315,37 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
   };
 
   const last = dynamics.timeline[dynamics.timeline.length - 1];
-  const summary = `Timeline of ${dynamics.duration_min} minutes. Blue win probability ends at ${last ? pct(last.win_probability_blue) : 'n/a'}. ${dynamics.inflection_points.length} inflection points and ${dynamics.player_anomalies.length} player anomalies. Use the inflection cards and scoreboard for keyboard navigation.`;
+  const summary = t('chartSummary', {
+    d: dynamics.duration_min,
+    p: last ? pct(last.win_probability_blue) : t('notAvailable'),
+    i: dynamics.inflection_points.length,
+    a: dynamics.player_anomalies.length,
+  });
 
   return (
     <section aria-labelledby="timeline-title" className="rounded-lg border border-slate-800 bg-slate-900 p-3 text-slate-100">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <h2 id="timeline-title" className="text-base font-semibold">Match pulse &amp; player stability</h2>
+        <h2 id="timeline-title" className="text-base font-semibold">{t('timelineTitle')}</h2>
         <div className="flex flex-wrap items-center gap-3 text-xs text-slate-300">
-          <span className="flex items-center gap-1"><span className="h-0.5 w-4 bg-slate-200" aria-hidden="true" />Win prob</span>
-          <span className="flex items-center gap-1"><span className="h-3 w-4 rounded-sm bg-side-blue/30" aria-hidden="true" />Blue power</span>
-          <span className="flex items-center gap-1"><span className="h-3 w-4 rounded-sm bg-side-red/30" aria-hidden="true" />Red power</span>
-          <span className="flex items-center gap-1"><span className="h-3 w-3 rotate-45 bg-inflect" aria-hidden="true" />Inflection / anomaly</span>
+          <span className="flex items-center gap-1"><span className="h-0.5 w-4 bg-slate-200" aria-hidden="true" />{t('legendWinProb')}</span>
+          <span className="flex items-center gap-1"><span className="h-3 w-4 rounded-sm bg-side-blue/30" aria-hidden="true" />{t('legendBluePower')}</span>
+          <span className="flex items-center gap-1"><span className="h-3 w-4 rounded-sm bg-side-red/30" aria-hidden="true" />{t('legendRedPower')}</span>
+          <span className="flex items-center gap-1"><span className="h-3 w-3 rotate-45 bg-inflect" aria-hidden="true" />{t('legendInflection')}</span>
           <span className="flex items-center gap-1">
-            Stability
+            {t('stability')}
             <span className="h-2.5 w-16 rounded-sm" style={{ background: `linear-gradient(90deg, ${HEAT_COLORS.join(',')})` }} aria-hidden="true" />
-            <span className="text-slate-400">low → high</span>
+            <span className="text-slate-400">{t('lowHigh')}</span>
           </span>
           <button type="button" onClick={resetZoom} className="rounded bg-slate-700 px-2 py-1 font-medium text-slate-100 hover:bg-slate-600">
-            Reset zoom
+            {t('resetZoom')}
           </button>
         </div>
       </div>
       <div ref={ref} role="img" aria-label={summary} style={{ height: CHART_H }} className="w-full" />
       <p className="min-h-5 text-sm text-amber-200" aria-live="polite">
         {hoveredAnomaly
-          ? `▲ ${hoveredAnomaly.champion} (${hoveredAnomaly.team}) · min ${hoveredAnomaly.minute} · ${humanize(hoveredAnomaly.anomaly_type)} · ${hoveredAnomaly.severity}: ${hoveredAnomaly.description}`
-          : <span className="text-slate-500">Hover an amber pill for anomaly details · click a lane to select a player · click a pin to inspect an inflection.</span>}
+          ? `▲ ${hoveredAnomaly.champion} (${teamLabel(hoveredAnomaly.team)}) · ${t('minShort', { n: hoveredAnomaly.minute })} · ${anomalyType(hoveredAnomaly.anomaly_type)} · ${severity(hoveredAnomaly.severity)}: ${anomalyDescription(hoveredAnomaly.description)}`
+          : <span className="text-slate-500">{t('hoverHint')}</span>}
       </p>
     </section>
   );
