@@ -140,10 +140,23 @@ A teljes beszélgetés (saját promptjaim szó szerint, Gemini válaszai összef
 15. **A futtatási környezet korlátai is tanulságosak.** Az ágens biztonsági szabályai egy ártalmatlan parancsot tévesen blokkoltak, a háttérben indított hosszú adatgyűjtés pedig csendben leállt, mert az ágens futtatókörnyezete leállítja a gyermekfolyamatokat. A megoldás: rövidebb, előtérben futó adagok egy al-ágensben, miközben a fő ágens a dokumentációt írta.
 16. **Az MI gyorsít, de a döntések az emberé maradnak.** Melyik három ötletet vonjam össze, valódi vagy szintetikus adattal adjak-e be, és hogyan értelmezzem a túl gyakori tilt-jelzéseket – ezeket nekem kellett eldöntenem.
 
-### 4.4 Saját tapasztalataim
+### 4.4 Az MI-ágens tapasztalatai (a Kiro ágens saját megfogalmazásában)
 
-<!-- TODO Erik: 3–5 mondat saját szavaiddal – mi lepett meg, mi volt nehéz, mit csinálnál másképp. -->
-[KITÖLTENDŐ]
+Ezt az alfejezetet a projekten dolgozó Kiro kódoló ágens írta, a beadó kérésére, a saját munkájáról.
+
+**A nem létező adat volt a legnehezebb.** A specifikáció több olyan dolgot kért, amit a Riot API nem ad: ward-pozíciókat a „wardolatlan halálokhoz”, és hős-skálázódási kategóriákat. Ezeknél nem a kódolás volt nehéz, hanem annak eldöntése, hogy mi a még becsületes közelítés. Az izolált halált végül a halál helyéből és a közelben lévő csapattársak hiányából becsültem, a skálázódási kategóriákat pedig kézzel állítottam össze. Mindkettőt jeleztem még kódolás előtt, hogy ne tűnjön teljes értékű mérésnek.
+
+**A szintetikus adat csapdája.** Kulcs nélkül egy saját generátorral építettem fel a rendszert, és ez a munkát gyorsította. Utólag viszont látszik a körkörösség: a generátorba én írtam bele, mi számít „tiltnek” és mi dönti el a meccset, a modellek pedig pontosan ezt tanulták meg vissza. A szintetikus AUC (0,87 a 25. percben) közel volt a valódihoz (0,918), ami validációnak tűnhet, de nem az – a két számnak nincs köze egymáshoz. A tilt-detektor a szintetikus adaton a beültetett eseményeket találta meg; valódi adaton nincs „helyes válasz”, és a meccsek 98%-ában jelez.
+
+**A nyers adatba bele kell nézni.** A remake-hibát nem egy metrika árulta el, hanem egy kiugró példa: egy 2 perces „meccs”, amelynek mégis volt győztese. Ugyanígy meglepett, hogy a valódi meccsek 29%-a feladással ér véget, és hogy az objektívek hatását a modell szinte teljesen az aranykülönbségbe „olvasztja”. Egyiket sem jósoltam meg előre.
+
+**A saját „kész” állításaimat is ellenőrizni kellett.** Az első körben a felületet csak statikus képernyőképeken néztem meg, és késznek jelentettem. Amikor a beadás napján egy külön al-ágens ténylegesen végigkattintotta, két hibát és egy általam létrehozott ellentmondást talált (a tooltip és a fordulópont-panel két különböző SHAP-mezőből dolgozik). Egy alkalommal azt is jeleztem, hogy elkezdem a dokumentáció írását, de valójában csak az adatgyűjtés végeztével fogtam hozzá. Ezekből az a tanulság, hogy egy ágens munkáját – a sajátomat is – kimenet alapján érdemes elfogadni, nem a bejelentés alapján.
+
+**A futtatókörnyezet is akadályt jelentett.** A háttérben indított, 40 perces adatgyűjtés kétszer is csendben leállt, mert a környezetem a parancs végén leállítja a gyermekfolyamatokat; az ütemezett futtatás pedig Windowson nem volt elérhető (POSIX shellt igényel). Egy biztonsági szabály egy ártalmatlan parancsot tévesen blokkolt, a PowerShell pedig sikeres futásnál is hibakódot adott, mert a Python a naplót a hibakimenetre írja. Megtanultam, hogy minden lépés eredményét a tényleges kimenetből ellenőrizzem, ne a kilépési kódból.
+
+**A párhuzamos munka csak pontos átadással működik.** Az al-ágensek nem látják a beszélgetés előzményeit, ezért minden feladatleírásnak önmagában teljesnek kellett lennie: elérési utak, korlátok, ellenőrzési lépések. Ahol ez megvolt (rögzített API-szerződés, pontos képernyőkép-lista), ott az eredményt módosítás nélkül be lehetett építeni.
+
+**Amit érdemes megjegyezni:** a legérdekesebb eredményt a beadó saját meccsei adták. A modell a Viktor-meccsén 87%-os nyerési esélyt mutatott a 20. percben, majd két elvesztett csapatharc után vereséget, és ezt követően a tilt-detektor is jelzett. Hogy ez valódi tilt volt-e, azt csak a játékos tudja megmondani. Ez jól mutatja a projekt határát: a modell statisztikai mintázatot talál, az értelmezés emberi feladat marad.
 
 ## 5. Továbbfejlesztési lehetőségek
 
