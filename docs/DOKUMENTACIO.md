@@ -10,6 +10,8 @@
 
 **Git repository:** https://github.com/erikzsoltdomokos/nexuspulse
 
+**Élő bemutató (GitHub Pages):** https://erikzsoltdomokos.github.io/nexuspulse/
+
 **Beadás dátuma:** 2026. november 15.
 
 ## 1. Rövid összefoglaló
@@ -66,6 +68,10 @@ Ami sikerült: a teljes rendszer működik valódi adatokon. A nyerési esély m
 
 A saját meccsemen (Viktor, kék oldal, 42 perc, vereség) a kék csapat a 20. percben 87%-on állt, majd a 24. percben −30%, a 26. percben −49% esés következett; mindkettőt főleg az élő játékosok különbsége (elvesztett csapatharc), az XP és a killek magyarázzák. Utána a nyerési esély 7–44% között ingadozott a meccs végéig, én pedig izolált halált (26:00), majd farm-összeomlást (32:00, 40:00) kaptam – ez pontosan a „bedobott meccs után tiltelés” mintázat.
 
+**Meccs-összefoglaló.** A dashboard tetején egy szabályalapú összefoglaló a modellek kimenetéből (determinisztikus, ugyanarra a meccsre mindig ugyanazt adja) szöveges formában mondja el a meccs történetét: a döntő pillanatot és annak SHAP-okait, a „nincs visszaút” percet, a vesztes csapat legjobb esélyét („a kék csapat a 20. percben 87%-on állt, vagyis ezt a meccset meg lehetett volna nyerni”), a meccs bedobásának időablakát, az elméleti erőablakokat, valamint játékosonként egy 0–100-as hatás-értékelést (KDA, arany- és sebzésrészesedés, átlagos stabilitás, tilt-események, sávellenféllel szembeni aranykülönbség a 15. percben). Ebből adódik a győztes MVP-je, a vesztes csapat legjobbja és az, akinek „többet kellett volna hoznia” – konkrét okokkal (pl. „12 halál; tilt-esemény: 26. perc; alacsony átlagos stabilitás”).
+
+![Meccs-összefoglaló a saját Viktor-meccsemen](img/08_summary_hu.png)
+
 ![Tooltip a fő grafikonon: aranyállás és SHAP-bontás](img/03_tooltip_hover.png)
 
 ![Fordulópont-kártyára kattintva a grafikon ráközelít és megnyílik a SHAP-bontás](img/04_inflection_click.png)
@@ -78,7 +84,13 @@ A saját meccsemen (Viktor, kék oldal, 42 perc, vereség) a kék csapat a 20. p
 
 ![A REST API automatikus OpenAPI dokumentációja](img/07_api_swagger.png)
 
-### 2.6 Futtatás
+### 2.6 Élő bemutató
+
+A dashboard szerver nélkül, statikus formában is elérhető: https://erikzsoltdomokos.github.io/nexuspulse/ (nyelv: `?lang=hu` / `?lang=en`). Az exportáló szkript 46 valódi meccs (a saját 20 meccsem és a legérdekesebb visszafordítások) összes elemzését előre kiszámolja JSON-fájlokba, a frontend pedig egy build-kapcsolóval (`VITE_STATIC=1`) ezekből olvas az API helyett. Így a bemutató ingyenesen, karbantartás nélkül online maradhat; cserébe a nyilvános változat új meccseket nem gyűjt (ezt a felület jelzi). Újratelepítés: `backend\scripts\deploy_pages.ps1`.
+
+![A nyilvános GitHub Pages bemutató](img/09_github_pages.png)
+
+### 2.7 Futtatás (helyben, teljes funkcionalitással)
 
 ```
 cd backend
@@ -112,6 +124,8 @@ A teljes beszélgetés (saját promptjaim szó szerint, Gemini válaszai összef
 | 3 | „okay, we need to finish this project. as of today i will have to draft a document … what do you need so we can procceed” | Az ágens összegyűjtötte a hiányzó információkat (azonosító, név, nyelv, formátum, valódi adat, repo). |
 | 4 | Válaszok: név/Neptun, „docs all in hungarian … maybe the site can also be set up to be displayed in hungarian too”, „yes, we should collect real data” | HU/EN nyelvváltó (al-ágens), prompt-dokumentáció, publikus GitHub repo. |
 | 5 | „my riot id is Luda1060#ZSID but i play on eune, maybe support for multiple regions?” | `--platform` kapcsoló, a saját 20 meccsem letöltése, majd 1000 meccs gyűjtése és újratanítás valódi adaton; remake-szűrés. |
+| 6 | „for 1. write your own experencies about what you think was difficult…” / „how can i open the website?” | Az ágens saját tanulságai (4.4), futtatási útmutató. |
+| 7 | „…i would just make a summary section about the game, about where the game was possible win or lost, who was the one that should have performed better… also is it possible to host this website permanently for a while so that the lecturer can see it?” | Meccs-összefoglaló (API + HU/EN panel) és statikus GitHub Pages bemutató 46 meccsel. |
 
 ## 4. Tanulságok
 
@@ -153,6 +167,8 @@ Ezt az alfejezetet a projekten dolgozó Kiro kódoló ágens írta, a beadó ké
 **A saját „kész” állításaimat is ellenőrizni kellett.** Az első körben a felületet csak statikus képernyőképeken néztem meg, és késznek jelentettem. Amikor a beadás napján egy külön al-ágens ténylegesen végigkattintotta, két hibát és egy általam létrehozott ellentmondást talált (a tooltip és a fordulópont-panel két különböző SHAP-mezőből dolgozik). Egy alkalommal azt is jeleztem, hogy elkezdem a dokumentáció írását, de valójában csak az adatgyűjtés végeztével fogtam hozzá. Ezekből az a tanulság, hogy egy ágens munkáját – a sajátomat is – kimenet alapján érdemes elfogadni, nem a bejelentés alapján.
 
 **A futtatókörnyezet is akadályt jelentett.** A háttérben indított, 40 perces adatgyűjtés kétszer is csendben leállt, mert a környezetem a parancs végén leállítja a gyermekfolyamatokat; az ütemezett futtatás pedig Windowson nem volt elérhető (POSIX shellt igényel). Egy biztonsági szabály egy ártalmatlan parancsot tévesen blokkolt, a PowerShell pedig sikeres futásnál is hibakódot adott, mert a Python a naplót a hibakimenetre írja. Megtanultam, hogy minden lépés eredményét a tényleges kimenetből ellenőrizzem, ne a kilépési kódból.
+
+**Egy túl nagy feladat elakad.** Az összefoglaló és a hosztolás együttes feladatát egy al-ágensre bíztam; az elérte a 100 lépéses korlátját, és „sikertelen” státusszal állt le. A munka nagy része mégis elkészült (az összefoglaló commitolva, az oldal élesítve), csak a végső commit maradt el – ezt a tényleges állapot (git, élő URL) ellenőrzésével lehetett kideríteni, nem a státuszból. Két kisebb feladat biztonságosabb lett volna.
 
 **A párhuzamos munka csak pontos átadással működik.** Az al-ágensek nem látják a beszélgetés előzményeit, ezért minden feladatleírásnak önmagában teljesnek kellett lennie: elérési utak, korlátok, ellenőrzési lépések. Ahol ez megvolt (rögzített API-szerződés, pontos képernyőkép-lista), ott az eredményt módosítás nélkül be lehetett építeni.
 
