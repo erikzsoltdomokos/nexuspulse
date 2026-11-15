@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:static": "tsc --noEmit && vite build --mode static --outDir dist-static",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview --host 127.0.0.1",
     "mock": "node scripts/generate-mock.mjs"

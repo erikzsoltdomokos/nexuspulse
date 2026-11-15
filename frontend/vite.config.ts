@@ -3,7 +3,9 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 
 // Dev server binds to loopback only and proxies API calls to the Python backend.
-export default defineConfig({
+// `--mode static` (npm run build:static) builds the GitHub Pages demo served under /nexuspulse/.
+export default defineConfig(({ mode }) => ({
+  base: mode === 'static' ? '/nexuspulse/' : '/',
   plugins: [react(), tailwindcss()],
   server: {
     host: '127.0.0.1',
@@ -30,4 +32,4 @@ export default defineConfig({
       },
     },
   },
-});
+}));

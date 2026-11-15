@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import type { CollectResult, Health, MatchSummary } from '../types';
 import { useI18n } from '../i18n';
+import { STATIC_MODE } from '../api';
 
 interface Props {
   health: Health | null;
@@ -71,7 +72,7 @@ export function Header({ health, healthState, matches, selectedId, demo, onSelec
   const healthDot = healthState === 'ok' ? 'bg-emerald-400' : healthState === 'down' ? 'bg-rose-500' : 'bg-slate-500 animate-pulse';
   const healthText =
     healthState === 'ok'
-      ? `${t('apiOnline', { models: health ? Object.entries(health.models).filter(([, v]) => v).map(([k]) => modelName(k)).join(', ') || t('modelsNone') : '—' })}${health && !health.riot_key_configured ? ` · ${t('noRiotKey')}` : ''}`
+      ? `${t('apiOnline', { models: health ? Object.entries(health.models).filter(([, v]) => v).map(([k]) => modelName(k)).join(', ') || t('modelsNone') : '—' })}${health && !health.riot_key_configured && !STATIC_MODE ? ` · ${t('noRiotKey')}` : ''}`
       : healthState === 'down'
         ? t('apiOffline')
         : t('checkingApi');
@@ -128,6 +129,12 @@ export function Header({ health, healthState, matches, selectedId, demo, onSelec
           </select>
         </label>
 
+        {STATIC_MODE ? (
+          <p className="rounded-md border border-amber-700 bg-amber-950/60 px-3 py-1.5 text-sm text-amber-200" role="note">
+            {t('staticNote')}
+          </p>
+        ) : (
+        <>
         <form onSubmit={collectMatch} className="flex items-center gap-2" aria-label={t('collectMatchFormAria')}>
           <input
             className={`${inputCls} w-44`}
@@ -165,6 +172,8 @@ export function Header({ health, healthState, matches, selectedId, demo, onSelec
             {busy === 'player' ? t('collecting') : t('collectPlayer')}
           </button>
         </form>
+        </>
+        )}
       </div>
 
       {(message || results.length > 0) && (

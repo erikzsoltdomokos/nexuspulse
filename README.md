@@ -3,6 +3,29 @@
 Multi-scale League of Legends timeline analytics: power-spike modeling, win-probability
 momentum with SHAP explanations, and player tilt detection, in one synchronized dashboard.
 
+**Live demo:** [erikzsoltdomokos.github.io/nexuspulse](https://erikzsoltdomokos.github.io/nexuspulse/)
+(static build with 46 precomputed real matches; live data collection is disabled there).
+
+## Static demo (GitHub Pages)
+
+The demo is the normal dashboard built with `vite build --mode static` (`VITE_STATIC=1`, base
+`/nexuspulse/`): every `GET /api/...` call reads `<base>api/....json` instead of the backend.
+`backend/scripts/export_static.py` produces those files by calling the real endpoints in-process
+for the author's games plus the most interesting real games (comebacks, many inflections).
+No Riot key or `.env` content is exported.
+
+Rebuild and publish (needs the trained models in `backend/data/`, `gh` logged in):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File backend\scripts\deploy_pages.ps1          # build, export, commit, push
+powershell -ExecutionPolicy Bypass -File backend\scripts\deploy_pages.ps1 -NoPush  # stop before the push
+```
+
+The script keeps a worktree of the orphan `gh-pages` branch in `backend\data\gh-pages`, replaces
+its contents with `frontend\dist-static` (+ `.nojekyll`), commits, runs `git push origin gh-pages`
+and makes sure Pages serves `gh-pages:/`. To preview locally: `cd frontend; npm run build:static`,
+then export with `backend\.venv\Scripts\python.exe backend\scripts\export_static.py`.
+
 ## Layout
 
 ```

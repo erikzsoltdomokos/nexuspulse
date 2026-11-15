@@ -10,7 +10,14 @@ import type {
   TimelineDynamics,
 } from './types';
 
-const BASE = '/api';
+/** Static GitHub Pages demo: GET /api/x -> <base>api/x.json; POST endpoints are disabled. */
+export const STATIC_MODE = import.meta.env.VITE_STATIC === '1';
+export const STATIC_DEFAULT_MATCH = 'EUN1_4025052100';
+const BASE = STATIC_MODE ? `${import.meta.env.BASE_URL}api` : '/api';
+
+function url(path: string): string {
+  return STATIC_MODE ? `${BASE}${path.split('?')[0]}.json` : `${BASE}${path}`;
+}
 const DEFAULT_TIMEOUT_MS = 15_000;
 
 export class ApiError extends Error {
@@ -32,7 +39,8 @@ async function request<T>(path: string, init: RequestInit = {}, timeoutMs = DEFA
   const timer = window.setTimeout(() => controller.abort(), timeoutMs);
   let res: Response;
   try {
-    res = await fetch(`${BASE}${path}`, {
+    if (STATIC_MODE && init.method && init.method !== 'GET') throw new ApiError('Static demo - live collection disabled', 503);
+    res = await fetch(url(path), {
       ...init,
       signal: controller.signal,
       headers: { Accept: 'application/json', ...(init.body ? { 'Content-Type': 'application/json' } : {}), ...init.headers },

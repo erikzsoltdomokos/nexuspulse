@@ -178,6 +178,7 @@ const en = {
   sumRatingNote: 'Rating 0-100 from KDA, gold and damage share, stability, tilt events and gold vs lane opponent at 15:00.',
   sumUnavailable: 'Match summary unavailable.',
   zoomTo: 'Zoom the timeline to minute {m}',
+  staticNote: 'Static demo - live collection disabled',
 } as const;
 
 export type TKey = keyof typeof en;
@@ -344,6 +345,7 @@ const hu: Record<TKey, string> = {
   sumRatingNote: 'Értékelés 0–100 között: KDA, arany- és sebzésrészesedés, stabilitás, tilt-események és a sávellenféllel szembeni aranykülönbség a 15. percben.',
   sumUnavailable: 'A meccs-összefoglaló nem érhető el.',
   zoomTo: 'Idővonal ráközelítése a(z) {m}. percre',
+  staticNote: 'Statikus bemutató - élő adatgyűjtés kikapcsolva',
 };
 
 const DICT: Record<Lang, Record<TKey, string>> = { en, hu };

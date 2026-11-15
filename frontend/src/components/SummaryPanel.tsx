@@ -115,7 +115,8 @@ export function SummaryPanel({ story, onFocusMinute }: Props) {
     const drops = tw.drops.map((d, i) => (
       <Fragment key={d.minute}>
         {i > 0 && ', '}
-        {rich(raw('sumDropItem'), { ...minuteVars(d.minute), d: signedPct(d.delta), drivers: drivers(d.drivers) || t('diffuseChange') })}
+        {/* Driver names only: their % is toward the winner and would read oddly next to a drop. */}
+        {rich(raw('sumDropItem'), { ...minuteVars(d.minute), d: signedPct(d.delta), drivers: d.drivers.map((f) => feature(f)).join(', ') || t('diffuseChange') })}
       </Fragment>
     ));
     sentences.push(

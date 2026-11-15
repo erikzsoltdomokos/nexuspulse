@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ApiError, api, loadDemo } from './api';
+import { ApiError, STATIC_DEFAULT_MATCH, STATIC_MODE, api, loadDemo } from './api';
 import type { CollectResult, Health, MatchStory, MatchSummary, Overview, TimelineDynamics } from './types';
 import { Header } from './components/Header';
 import { OverviewStrip } from './components/OverviewStrip';
@@ -91,7 +91,8 @@ export default function App() {
     if (autoPicked.current || demo || selectedId || matches.length === 0) return;
     autoPicked.current = true;
     const wanted = new URLSearchParams(window.location.search).get('match');
-    const pick = wanted || matches[0].match_id;
+    const staticDefault = STATIC_MODE && matches.some((m) => m.match_id === STATIC_DEFAULT_MATCH) ? STATIC_DEFAULT_MATCH : null;
+    const pick = wanted || staticDefault || matches[0].match_id;
     void selectMatch(pick);
   }, [matches, demo, selectedId, selectMatch]);
 
