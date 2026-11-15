@@ -157,8 +157,8 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
         formatter: tooltipFormatter,
       },
       grid: [
-        { left: 128, right: 24, top: G0_TOP, height: G0_H },
-        { left: 128, right: 24, top: G1_TOP, height: G1_H },
+        { left: 128, right: 40, top: G0_TOP, height: G0_H },
+        { left: 128, right: 40, top: G1_TOP, height: G1_H },
       ],
       xAxis: [
         {
@@ -199,7 +199,7 @@ export function TimelineChart({ dynamics, selectedPlayer, onSelectPlayer, onSele
       dataZoom: [
         { type: 'inside', xAxisIndex: [0, 1], minValueSpan: 4 },
         {
-          type: 'slider', xAxisIndex: [0, 1], top: SLIDER_TOP, height: 20, left: 128, right: 24,
+          type: 'slider', xAxisIndex: [0, 1], top: SLIDER_TOP, height: 20, left: 128, right: 40,
           borderColor: '#334155', backgroundColor: '#0f172a', fillerColor: 'rgba(245,158,11,0.15)',
           handleStyle: { color: COLORS.amber, borderColor: COLORS.amber },
           textStyle: { color: COLORS.muted }, dataBackground: { lineStyle: { color: '#475569' }, areaStyle: { color: '#1e293b' } },

@@ -117,6 +117,8 @@ export function Header({ health, healthState, matches, selectedId, demo, onSelec
             aria-label={t('selectMatchAria')}
           >
             <option value="">{matches.length ? t('selectMatch') : t('noMatchesStored')}</option>
+            {/* A match opened via ?match= may be older than the newest-N list; still show it as selected. */}
+            {selectedId && !matches.some((m) => m.match_id === selectedId) && <option value={selectedId}>{selectedId}</option>}
             {matches.map((m) => (
               <option key={m.match_id} value={m.match_id}>
                 {m.match_id} · {new Date(m.game_creation).toLocaleDateString(locale)} · {t('minutesShort', { n: Math.round(m.duration_min) })} · {t('teamWin', { team: team(m.winner) })}
