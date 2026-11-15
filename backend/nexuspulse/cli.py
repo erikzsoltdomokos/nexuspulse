@@ -23,10 +23,12 @@ def main(argv: list[str] | None = None) -> None:
     p = sub.add_parser("collect-player", help="fetch recent ranked matches for a Riot ID (Name#TAG)")
     p.add_argument("riot_id")
     p.add_argument("--count", type=int, default=20)
+    p.add_argument("--platform", default=None, help="server: euw1, eun1, na1, kr, ... (default: RIOT_PLATFORM)")
 
     p = sub.add_parser("crawl", help="snowball-crawl high-tier ranked matches for training")
     p.add_argument("--max-matches", type=int, default=500)
     p.add_argument("--tier", default="challenger", choices=["challenger", "grandmaster", "master"])
+    p.add_argument("--platform", default=None, help="server: euw1, eun1, na1, kr, ... (default: RIOT_PLATFORM)")
 
     p = sub.add_parser("train", help="train all models on the local cache")
     p.add_argument("--source", choices=["riot", "synthetic"], default=None)
@@ -54,7 +56,7 @@ def main(argv: list[str] | None = None) -> None:
             from .ingest import collect_match, collect_player, crawl
             from .riot_client import RiotClient
 
-            client = RiotClient()
+            client = RiotClient(platform=getattr(args, "platform", None))
             if not client.configured:
                 raise SystemExit("RIOT_API_KEY is not set (env var or backend/.env)")
             if args.cmd == "collect-match":
